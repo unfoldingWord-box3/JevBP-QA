@@ -69,3 +69,21 @@ def test_titus_bsb_every_item_resolves():
     assert sum(len(c.key_terms) for c in cases) == 182
     assert all(k.rendering for c in cases for k in c.key_terms)
     assert all(f.rendering for c in cases for f in c.figures)
+
+
+def test_planted_term_needs_a_unique_match():
+    from jevqa.mutate import _replace_unique
+
+    assert _replace_unique("God sent God's Son", "God", "grace") is None  # ambiguous: which one is aligned?
+    assert _replace_unique("the grace of God", "grace", "wrath") == "the wrath of God"
+
+
+def test_conditions_share_one_fault_set():
+    """Ablations must be scored on the same planted cases, or the comparison means nothing."""
+    from jevqa import run
+
+    full = run.cases_for("hi_irv")
+    for cond in (run.Condition(approved=False), run.Condition(renderings=False)):
+        other = run.cases_for("hi_irv", cond)
+        assert [(c.id, c.target) for c in other] == [(c.id, c.target) for c in full]
+    assert not any(k.approved for c in run.cases_for("hi_irv", run.Condition(approved=False)) for k in c.key_terms)

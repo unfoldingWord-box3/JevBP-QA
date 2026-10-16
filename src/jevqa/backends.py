@@ -12,6 +12,7 @@ care which one ran. Responses are cached on disk by request hash.
 import hashlib
 import json
 import os
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -62,10 +63,11 @@ def parse_json(text: str) -> dict:
 class Backend:
     name = "base"
     model = ""
+    cache_salt = ""  # anything besides state and questions that shapes the answer (prompts, conversion)
 
     def ask(self, case: Case) -> CallResult:
         st, q = qs.state(case), qs.questions(case)
-        h = hashlib.sha256(json.dumps([self.name, self.model, st, q], sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:24]
+        h = hashlib.sha256(json.dumps([self.name, self.model, self.cache_salt, st, q], sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:24]
         path = CACHE / self.name / f"{h}.json"
         if path.exists():
             hit = json.loads(path.read_text())
@@ -76,8 +78,9 @@ class Backend:
             except Exception as e:  # recorded per case so one bad call doesn't sink a run
                 return CallResult(case.id, self.name, self.model, {}, 0.0, None, None, error=str(e))
             hit["latency_ms"] = (time.perf_counter() - t0) * 1000
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(json.dumps(hit, ensure_ascii=False, indent=1))
+            if set(q) <= set(hit["answers"]):  # partial replies are not cached, so a re-run retries them
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps(hit, ensure_ascii=False, indent=1))
         answers = {name: Answer(name, raw, qs.p_pass(name, raw)) for name, raw in hit["answers"].items() if name in q}
         missing = sorted(set(q) - set(answers))
         return CallResult(
@@ -108,9 +111,10 @@ class DryRun(Backend):
 
     def __init__(self, out: Path):
         self.out = out
+        self.lock = threading.Lock()
 
     def ask(self, case):
-        with self.out.open("a") as f:
+        with self.lock, self.out.open("a") as f:
             f.write(json.dumps({"case": case.id, "state": qs.state(case), "questions": qs.questions(case)}, ensure_ascii=False) + "\n")
         return CallResult(case.id, self.name, "", {}, 0.0, None, None)
 
@@ -128,9 +132,11 @@ where <answer> is
 
 class OpenRouter(Backend):
     name = "openrouter"
+    WIRE_VERSION = "1"  # bump when _to_wire or the request parameters change
 
     def __init__(self, model: str = "anthropic/claude-haiku-5.5"):
         self.model = model
+        self.cache_salt = hashlib.sha256((_BASELINE_PROMPT + self.WIRE_VERSION).encode()).hexdigest()[:12]
 
     def _call(self, state, questions):
         r = _post(OPENROUTER_URL, {

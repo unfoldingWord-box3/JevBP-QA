@@ -70,8 +70,7 @@ def _aligned(verse, words) -> str | None:
     return usfm.rendering(verse, words) or None if verse else None
 
 
-def build_cases(target_key: str, approved: bool = True) -> list[Case]:
-    """approved=False leaves out the target-language tW headwords (the 'approved terms')."""
+def build_cases(target_key: str) -> list[Case]:
     t = TARGETS[target_key]
     greek = usfm.parse_ugnt(sources.fetch("ugnt"))
     verses = usfm.parse_target(sources.fetch(t.key))
@@ -87,7 +86,7 @@ def build_cases(target_key: str, approved: bool = True) -> list[Case]:
         en = _article("en_tw", slug)
         if en is None:
             continue
-        local = (_article(t.tw, slug) if t.tw != "en_tw" else en) if t.tw and approved else None
+        local = (_article(t.tw, slug) if t.tw != "en_tw" else en) if t.tw else None
         words = usfm.find_phrase(greek[ref], row["OrigWords"], int(row["Occurrence"]))
         terms.setdefault(ref, []).append(KeyTerm(
             id=f"kt_{row['ID']}", ref=ref, greek=row["OrigWords"], occurrence=int(row["Occurrence"]),

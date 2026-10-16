@@ -47,6 +47,7 @@ def headline(results: list[dict]) -> dict:
     out["handling_accuracy"] = acc
     lat = [r["latency_ms"] for r in results if r["latency_ms"]]
     out["median_latency_ms"] = statistics.median(lat) if lat else None
+    out["unanswered"] = sum(1 for r in results for g in r["gold"] if g["question"] not in r["answers"])
     out["cost_usd"] = sum(r["cost_usd"] or 0 for r in results)
     out["calls"] = len(results)
     out["models"] = sorted({r["model"] for r in results})
@@ -66,9 +67,13 @@ def write(target: str) -> Path:
     for k in dict.fromkeys(("ugnt", "en_tn", "en_twl", "en_tw", t.key, t.tw)):
         if k and k in lock:
             L.append(f"- `{k}`: {lock[k]['repo']} @ `{lock[k]['sha'][:10]}` ({lock[k]['license']})")
-    L += ["", "## Speed and cost", "", "| run | model version | calls | median latency | total cost |", "|---|---|---|---|---|"]
+    L += ["", "## Speed and cost", "",
+          "Cost and latency are those of the call that produced each answer (re-runs are served from cache). "
+          "Unanswered = questions with no answer (API error or partial reply); they are left out of every score below.", "",
+          "| run | model version | calls | median latency | total cost | unanswered |", "|---|---|---|---|---|---|"]
     for n, h in heads.items():
-        L.append(f"| {n} | {', '.join(h['models'])} | {h['calls']} | {h['median_latency_ms']:.0f} ms | ${h['cost_usd']:.4f} |")
+        lat = "–" if h["median_latency_ms"] is None else f"{h['median_latency_ms']:.0f} ms"
+        L.append(f"| {n} | {', '.join(h['models']) or '–'} | {h['calls']} | {lat} | ${h['cost_usd']:.4f} | {h['unanswered']} |")
     for kind, title in KINDS.items():
         L += ["", f"## {title}", "",
               "Real flagged = share of the published translation's items sent to review (lower is better if the text is good). "
