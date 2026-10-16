@@ -22,7 +22,7 @@ We ran it on the letter to Titus in three settings:
 ## Short version
 
 - **Jev catches planted errors in languages it can read.** When we planted a wrong key term or
-  deleted one, Jev sent 98–100% of those items to review in English, Hindi, and Arabic. When we
+  deleted one, Jev sent 97–100% of those items to review in English, Hindi, and Arabic. When we
   rewrote a figure of speech so its meaning was lost or distorted, it caught 98–100%. Detection
   holds when the aligned words are left out of the request, so Jev is reading the verse.
 - **It also flags some good text.** On the published translations (which we assume are mostly
