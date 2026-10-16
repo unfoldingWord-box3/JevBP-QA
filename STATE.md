@@ -3,14 +3,36 @@
 What this project is, durable lessons, blockers. Not a session log.
 
 ## Goal
-Measure how well Jev (typesafe.ai, typed probabilistic answers) checks a
-translation verse-by-verse against the Greek (UGNT), driven by unfoldingWord
-Translation Notes (figures of speech) and Translation Words (key terms).
+Measure how well Jev (typesafe.ai "System One" model: typed questions in,
+calibrated probabilities out) checks a translation verse by verse against the
+Greek (UGNT), driven by unfoldingWord Translation Notes (figures of speech) and
+Translation Words Links (key terms). README.md has the method and results.
 
-- Phase 0: BSB Titus vs Greek (English, so we can judge the checker).
-- Phase 1: a Strategic Language reader Bible: Russian RSOB (aligned) and
-  the Russian Synodal (aligned, 1876 text).
-- Phase 2: zero-shot on a language with no model support: Masalit Titus.
+## Gotchas
+- Jev wire format (verified 2026-10-16): POST https://api.typesafe.ai/v1/systemone,
+  body {model, state, questions:{name:{type: noul|choice|score, instructions, criteria}}}.
+  noul answers are a bare float; choice/score carry probabilities and confidence.
+  The Python SDK (typesafe-sdk) pulls in httpx2 and has broken question types
+  between minor versions; plain HTTP is used instead.
+- `jev-latest` / `jev-preview` are moving aliases (1.13.0 / 1.14.0 on 2026-10-16).
+  The response cache key includes the alias, so cached answers can be from an
+  older version; each result row records the real version in `model`.
+- OpenRouter's `typesafe/jev-router` is a model router, not the systemone endpoint.
+- Door43 aligned USFM only carries Greek words that were aligned; the full Greek
+  verse must come from UGNT. Occurrence counts are per exact surface form on both
+  sides, so alignment matching uses NFC surfaces, not casefolded ones.
+- Hindi IRV is aligned to UGNT 0.13, but Titus has zero drift against 0.34.
+- BSOJ/ar_nav LICENSE.md is unfoldingWord boilerplate; the manifest and Biblica's
+  own repo give CC BY-SA 4.0.
+- The Masalit repo uses language code `mdg` (that is Massalat); Masalit is `mls`.
+  Its translationCore data has only spelling edits, no checker selections.
+- Small-model back-translations can import the remembered Bible text (Hindi 2:15).
+
+## Durable lessons
+- Measure with planted errors, not just the published text: a checker that always
+  says "pass" looks perfect on a good translation.
+- Flags that recur across translations point at the checking agenda (TWL links),
+  not the translation.
 
 ## Blockers
-- No TypeSafe API key yet (Benjamin is arranging one).
+- Real precision needs human labels on a sample of Hindi/Arabic flags.
