@@ -1,0 +1,839 @@
+{
+ "fig_swi9": {
+  "ref": "1:3",
+  "original": "In His own time He has made His word evident in the proclamation entrusted to me by the command of God our Savior.",
+  "variants": {
+   "kept_clear": {
+    "verse": "In His own time He has brought His word into plain view in the proclamation entrusted to me by the command of God our Savior.",
+    "rendering": "He has brought His word into plain view"
+   },
+   "simile": {
+    "verse": "In His own time He has made His word plain, like an object held up for all to see, in the proclamation entrusted to me by the command of God our Savior.",
+    "rendering": "He has made His word plain, like an object held up for all to see"
+   },
+   "plain": {
+    "verse": "In His own time He has made His message known and understood in the proclamation entrusted to me by the command of God our Savior.",
+    "rendering": "He has made His message known and understood"
+   },
+   "lost": {
+    "verse": "In His own time He has acted in the proclamation entrusted to me by the command of God our Savior.",
+    "rendering": "He has acted"
+   },
+   "distorted": {
+    "verse": "In His own time He has kept His word hidden in the proclamation entrusted to me by the command of God our Savior.",
+    "rendering": "He has kept His word hidden"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_gu55": {
+  "ref": "1:4",
+  "original": "To Titus, my true child in our common faith: Grace and peace from God the Father and Christ Jesus our Savior.",
+  "variants": {
+   "kept_clear": {
+    "verse": "To Titus, my true son in our common faith: Grace and peace from God the Father and Christ Jesus our Savior.",
+    "rendering": "my true son"
+   },
+   "simile": {
+    "verse": "To Titus, like a true son to me in our common faith: Grace and peace from God the Father and Christ Jesus our Savior.",
+    "rendering": "like a true son to me"
+   },
+   "plain": {
+    "verse": "To Titus, my genuine spiritual son, who shares my faith in Christ: Grace and peace from God the Father and Christ Jesus our Savior.",
+    "rendering": "my genuine spiritual son, who shares my faith in Christ"
+   },
+   "lost": {
+    "verse": "To Titus, my true offspring in our common faith: Grace and peace from God the Father and Christ Jesus our Savior.",
+    "rendering": "my true offspring"
+   },
+   "distorted": {
+    "verse": "To Titus, my natural-born son by blood, in our common faith: Grace and peace from God the Father and Christ Jesus our Savior.",
+    "rendering": "my natural-born son by blood"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_g2zf": {
+  "ref": "1:7",
+  "original": "As God’s steward, an overseer must be above reproach—not self-absorbed, not quick-tempered, not given to drunkenness, not violent, not greedy for money.",
+  "variants": {
+   "kept_clear": {
+    "verse": "As God’s household manager, an overseer must be above reproach—not self-absorbed, not quick-tempered, not given to drunkenness, not violent, not greedy for money.",
+    "rendering": "God’s household manager"
+   },
+   "simile": {
+    "verse": "Like a steward managing God’s household, an overseer must be above reproach—not self-absorbed, not quick-tempered, not given to drunkenness, not violent, not greedy for money.",
+    "rendering": "Like a steward managing God’s household"
+   },
+   "plain": {
+    "verse": "As someone in charge of taking care of God’s church, an overseer must be above reproach—not self-absorbed, not quick-tempered, not given to drunkenness, not violent, not greedy for money.",
+    "rendering": "someone in charge of taking care of God’s church"
+   },
+   "lost": {
+    "verse": "As God’s dispenser of provisions, an overseer must be above reproach—not self-absorbed, not quick-tempered, not given to drunkenness, not violent, not greedy for money.",
+    "rendering": "God’s dispenser of provisions"
+   },
+   "distorted": {
+    "verse": "As God’s landlord, an overseer must be above reproach—not self-absorbed, not quick-tempered, not given to drunkenness, not violent, not greedy for money.",
+    "rendering": "God’s landlord"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_vkq1": {
+  "ref": "1:8",
+  "original": "Instead, he must be hospitable, a lover of good, self-controlled, upright, holy, and disciplined.",
+  "variants": {
+   "kept_clear": {
+    "verse": "Instead, he must be hospitable, a friend of what is good, self-controlled, upright, holy, and disciplined.",
+    "rendering": "a friend of what is good"
+   },
+   "simile": {
+    "verse": "Instead, he must be hospitable, devoted to goodness like a friend, self-controlled, upright, holy, and disciplined.",
+    "rendering": "devoted to goodness like a friend"
+   },
+   "plain": {
+    "verse": "Instead, he must be hospitable, a person who loves to do good things, self-controlled, upright, holy, and disciplined.",
+    "rendering": "a person who loves to do good things"
+   },
+   "lost": {
+    "verse": "Instead, he must be hospitable, a good-lover, self-controlled, upright, holy, and disciplined.",
+    "rendering": "a good-lover"
+   },
+   "distorted": {
+    "verse": "Instead, he must be hospitable, a lover of goods, self-controlled, upright, holy, and disciplined.",
+    "rendering": "a lover of goods"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_xwy6": {
+  "ref": "1:9",
+  "original": "He must hold firmly to the faithful word as it was taught, so that he can encourage others by sound teaching and refute those who contradict it.",
+  "variants": {
+   "kept_clear": {
+    "verse": "He must keep a firm grip on the faithful word as it was taught, so that he can encourage others by sound teaching and refute those who contradict it.",
+    "rendering": "keep a firm grip on"
+   },
+   "simile": {
+    "verse": "He must cling to the faithful word as it was taught like a man gripping a rope with both hands, so that he can encourage others by sound teaching and refute those who contradict it.",
+    "rendering": "cling to ... like a man gripping a rope with both hands"
+   },
+   "plain": {
+    "verse": "He must be devoted to the faithful word as it was taught, so that he can encourage others by sound teaching and refute those who contradict it.",
+    "rendering": "be devoted to"
+   },
+   "lost": {
+    "verse": "He must be aware of the faithful word as it was taught, so that he can encourage others by sound teaching and refute those who contradict it.",
+    "rendering": "be aware of"
+   },
+   "distorted": {
+    "verse": "He must set aside the faithful word as it was taught, so that he can encourage others by sound teaching and refute those who contradict it.",
+    "rendering": "set aside"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_pzi1": {
+  "ref": "1:9",
+  "original": "He must hold firmly to the faithful word as it was taught, so that he can encourage others by sound teaching and refute those who contradict it.",
+  "variants": {
+   "kept_clear": {
+    "verse": "He must hold firmly to the faithful word as it was taught, so that he can encourage others by healthy teaching and refute those who contradict it.",
+    "rendering": "healthy teaching"
+   },
+   "simile": {
+    "verse": "He must hold firmly to the faithful word as it was taught, so that he can encourage others by teaching that is like a healthy body and refute those who contradict it.",
+    "rendering": "teaching that is like a healthy body"
+   },
+   "plain": {
+    "verse": "He must hold firmly to the faithful word as it was taught, so that he can encourage others by correct teaching and refute those who contradict it.",
+    "rendering": "correct teaching"
+   },
+   "lost": {
+    "verse": "He must hold firmly to the faithful word as it was taught, so that he can encourage others by well-muscled teaching and refute those who contradict it.",
+    "rendering": "well-muscled teaching"
+   },
+   "distorted": {
+    "verse": "He must hold firmly to the faithful word as it was taught, so that he can encourage others by new teaching and refute those who contradict it.",
+    "rendering": "new teaching"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_w9kk": {
+  "ref": "1:10",
+  "original": "For many are rebellious and full of empty talk and deception, especially those of the circumcision,",
+  "variants": {
+   "kept_clear": {
+    "verse": "For many are rebellious and empty talkers and deception, especially those of the circumcision,",
+    "rendering": "empty talkers"
+   },
+   "simile": {
+    "verse": "For many are rebellious and talk like empty barrels and deception, especially those of the circumcision,",
+    "rendering": "talk like empty barrels"
+   },
+   "plain": {
+    "verse": "For many are rebellious and say useless things and deception, especially those of the circumcision,",
+    "rendering": "say useless things"
+   },
+   "lost": {
+    "verse": "For many are rebellious and full of hollow vessels and deception, especially those of the circumcision,",
+    "rendering": "full of hollow vessels"
+   },
+   "distorted": {
+    "verse": "For many are rebellious and full of wise counsel and deception, especially those of the circumcision,",
+    "rendering": "full of wise counsel"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_pu74": {
+  "ref": "1:10",
+  "original": "For many are rebellious and full of empty talk and deception, especially those of the circumcision,",
+  "variants": {
+   "kept_clear": {
+    "verse": "For many are rebellious and full of empty talk and deception, especially those of the circumcision party,",
+    "rendering": "those of the circumcision party"
+   },
+   "simile": {
+    "verse": "For many are rebellious and full of empty talk and deception, especially those who, as if circumcision were everything, insist on it,",
+    "rendering": "those who, as if circumcision were everything, insist on it"
+   },
+   "plain": {
+    "verse": "For many are rebellious and full of empty talk and deception, especially the ones who teach that men must be circumcised in order to please God,",
+    "rendering": "the ones who teach that men must be circumcised in order to please God"
+   },
+   "lost": {
+    "verse": "For many are rebellious and full of empty talk and deception, especially those out of the circumcision,",
+    "rendering": "those out of the circumcision"
+   },
+   "distorted": {
+    "verse": "For many are rebellious and full of empty talk and deception, especially those who oppose circumcision,",
+    "rendering": "those who oppose circumcision"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_y3zb": {
+  "ref": "1:12",
+  "original": "As one of their own prophets has said, “Cretans are always liars, evil beasts, lazy gluttons.”",
+  "variants": {
+   "kept_clear": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, evil beasts, lazy gluttons.”",
+    "rendering": "Cretans are always liars"
+   },
+   "simile": {
+    "verse": "As one of their own prophets has said, “Cretans are like people who do nothing but lie, evil beasts, lazy gluttons.”",
+    "rendering": "Cretans are like people who do nothing but lie"
+   },
+   "plain": {
+    "verse": "As one of their own prophets has said, “Cretans have a reputation for being liars, evil beasts, lazy gluttons.”",
+    "rendering": "Cretans have a reputation for being liars"
+   },
+   "lost": {
+    "verse": "As one of their own prophets has said, “Cretans are liars at every moment of time, evil beasts, lazy gluttons.”",
+    "rendering": "Cretans are liars at every moment of time"
+   },
+   "distorted": {
+    "verse": "As one of their own prophets has said, “Cretans are never liars, evil beasts, lazy gluttons.”",
+    "rendering": "Cretans are never liars"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_h3jb": {
+  "ref": "1:12",
+  "original": "As one of their own prophets has said, “Cretans are always liars, evil beasts, lazy gluttons.”",
+  "variants": {
+   "kept_clear": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, wicked animals, lazy gluttons.”",
+    "rendering": "wicked animals"
+   },
+   "simile": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, like dangerous wild animals, lazy gluttons.”",
+    "rendering": "like dangerous wild animals"
+   },
+   "plain": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, cruel and dangerous people, lazy gluttons.”",
+    "rendering": "cruel and dangerous people"
+   },
+   "lost": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, beasts of the field, lazy gluttons.”",
+    "rendering": "beasts of the field"
+   },
+   "distorted": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, gentle creatures, lazy gluttons.”",
+    "rendering": "gentle creatures"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_xyz1": {
+  "ref": "1:12",
+  "original": "As one of their own prophets has said, “Cretans are always liars, evil beasts, lazy gluttons.”",
+  "variants": {
+   "kept_clear": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, evil beasts, lazy bellies that live only to be fed.”",
+    "rendering": "lazy bellies that live only to be fed"
+   },
+   "simile": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, evil beasts, like lazy bellies that live only to eat.”",
+    "rendering": "like lazy bellies that live only to eat"
+   },
+   "plain": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, evil beasts, lazy people who just want to eat.”",
+    "rendering": "lazy people who just want to eat"
+   },
+   "lost": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, evil beasts, lazy stomachs.”",
+    "rendering": "lazy stomachs"
+   },
+   "distorted": {
+    "verse": "As one of their own prophets has said, “Cretans are always liars, evil beasts, hardworking and self-controlled people.”",
+    "rendering": "hardworking and self-controlled people"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_je3r": {
+  "ref": "1:13",
+  "original": "This testimony is true. Therefore rebuke them sternly, so that they will be sound in the faith",
+  "variants": {
+   "kept_clear": {
+    "verse": "This testimony is true. Therefore rebuke them sternly, so that they will be healthy in the faith",
+    "rendering": "so that they will be healthy in the faith"
+   },
+   "simile": {
+    "verse": "This testimony is true. Therefore rebuke them sternly, so that their faith will be like a body in good health",
+    "rendering": "so that their faith will be like a body in good health"
+   },
+   "plain": {
+    "verse": "This testimony is true. Therefore rebuke them sternly, so that they will believe only what is true about God",
+    "rendering": "so that they will believe only what is true about God"
+   },
+   "lost": {
+    "verse": "This testimony is true. Therefore rebuke them sternly, so that they will be well in the faith",
+    "rendering": "so that they will be well in the faith"
+   },
+   "distorted": {
+    "verse": "This testimony is true. Therefore rebuke them sternly, so that they will be sick of the faith",
+    "rendering": "so that they will be sick of the faith"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_m4a5": {
+  "ref": "1:14",
+  "original": "and will pay no attention to Jewish myths or to the commands of men who have rejected the truth.",
+  "variants": {
+   "kept_clear": {
+    "verse": "and will pay no attention to Jewish myths or to the commands of men who have turned their backs on the truth.",
+    "rendering": "have turned their backs on the truth"
+   },
+   "simile": {
+    "verse": "and will pay no attention to Jewish myths or to the commands of men who have turned away from the truth as one turns away from a person one does not want to see.",
+    "rendering": "have turned away from the truth as one turns away from a person one does not want to see"
+   },
+   "plain": {
+    "verse": "and will pay no attention to Jewish myths or to the commands of men who have refused to believe what is true.",
+    "rendering": "have refused to believe what is true"
+   },
+   "lost": {
+    "verse": "and will pay no attention to Jewish myths or to the commands of men who have swerved around the truth.",
+    "rendering": "have swerved around the truth"
+   },
+   "distorted": {
+    "verse": "and will pay no attention to Jewish myths or to the commands of men who have embraced the truth.",
+    "rendering": "have embraced the truth"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_n3wk": {
+  "ref": "1:15",
+  "original": "To the pure, all things are pure; but to the defiled and unbelieving, nothing is pure. Indeed, both their minds and their consciences are defiled.",
+  "variants": {
+   "kept_clear": {
+    "verse": "To the pure, all things are pure; but to the filthy and unbelieving, nothing is clean. Indeed, both their minds and their consciences are defiled.",
+    "rendering": "but to the filthy and unbelieving, nothing is clean"
+   },
+   "simile": {
+    "verse": "To the pure, all things are pure; but to the unbelieving, who are like people covered in filth, nothing is pure. Indeed, both their minds and their consciences are defiled.",
+    "rendering": "but to the unbelieving, who are like people covered in filth, nothing is pure"
+   },
+   "plain": {
+    "verse": "To the pure, all things are pure; but to those who are sinful and do not believe, nothing is good in God's sight. Indeed, both their minds and their consciences are defiled.",
+    "rendering": "but to those who are sinful and do not believe, nothing is good in God's sight"
+   },
+   "lost": {
+    "verse": "To the pure, all things are pure; but to the stained and unbelieving, nothing is spotless. Indeed, both their minds and their consciences are defiled.",
+    "rendering": "but to the stained and unbelieving, nothing is spotless"
+   },
+   "distorted": {
+    "verse": "To the pure, all things are pure; but to the unbelieving, everything is allowed, since nothing is forbidden. Indeed, both their minds and their consciences are defiled.",
+    "rendering": "but to the unbelieving, everything is allowed, since nothing is forbidden"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_ph2j": {
+  "ref": "2:1",
+  "original": "But as for you, speak the things that are consistent with sound doctrine.",
+  "variants": {
+   "kept_clear": {
+    "verse": "But as for you, speak the things that are consistent with healthy doctrine.",
+    "rendering": "healthy doctrine"
+   },
+   "simile": {
+    "verse": "But as for you, speak the things that are consistent with doctrine that is like a healthy body, strong and life-giving.",
+    "rendering": "doctrine that is like a healthy body, strong and life-giving"
+   },
+   "plain": {
+    "verse": "But as for you, speak the things that are consistent with correct doctrine.",
+    "rendering": "correct doctrine"
+   },
+   "lost": {
+    "verse": "But as for you, speak the things that are consistent with well-fleshed doctrine.",
+    "rendering": "well-fleshed doctrine"
+   },
+   "distorted": {
+    "verse": "But as for you, speak the things that are consistent with popular doctrine.",
+    "rendering": "popular doctrine"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_abc1": {
+  "ref": "2:2",
+  "original": "Older men are to be temperate, dignified, self-controlled, and sound in faith, love, and perseverance.",
+  "variants": {
+   "kept_clear": {
+    "verse": "Older men are to be temperate, dignified, self-controlled, and healthy in faith, in love, and in perseverance.",
+    "rendering": "healthy in faith, in love, and in perseverance"
+   },
+   "simile": {
+    "verse": "Older men are to be temperate, dignified, self-controlled, and, like a healthy body, strong in faith, love, and perseverance.",
+    "rendering": "like a healthy body, strong in faith, love, and perseverance"
+   },
+   "plain": {
+    "verse": "Older men are to be temperate, dignified, self-controlled, and firm and unwavering in faith, love, and perseverance.",
+    "rendering": "firm and unwavering in faith, love, and perseverance"
+   },
+   "lost": {
+    "verse": "Older men are to be temperate, dignified, self-controlled, and free of illness in faith, love, and perseverance.",
+    "rendering": "free of illness in faith, love, and perseverance"
+   },
+   "distorted": {
+    "verse": "Older men are to be temperate, dignified, self-controlled, and flexible in faith, love, and perseverance.",
+    "rendering": "flexible in faith, love, and perseverance"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_g9re": {
+  "ref": "2:3",
+  "original": "Older women, likewise, are to be reverent in their behavior, not slanderers or addicted to much wine, but teachers of good.",
+  "variants": {
+   "kept_clear": {
+    "verse": "Older women, likewise, are to be reverent in their behavior, not slanderers or enslaved to much wine, but teachers of good.",
+    "rendering": "enslaved to much wine"
+   },
+   "simile": {
+    "verse": "Older women, likewise, are to be reverent in their behavior, not slanderers or held by much wine as a slave is held by a master, but teachers of good.",
+    "rendering": "held by much wine as a slave is held by a master"
+   },
+   "plain": {
+    "verse": "Older women, likewise, are to be reverent in their behavior, not slanderers or unable to control their drinking of wine, but teachers of good.",
+    "rendering": "unable to control their drinking of wine"
+   },
+   "lost": {
+    "verse": "Older women, likewise, are to be reverent in their behavior, not slanderers or servants of much wine, but teachers of good.",
+    "rendering": "servants of much wine"
+   },
+   "distorted": {
+    "verse": "Older women, likewise, are to be reverent in their behavior, not slanderers or sellers of much wine, but teachers of good.",
+    "rendering": "sellers of much wine"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_t5v6": {
+  "ref": "2:5",
+  "original": "to be self-controlled, pure, managers of their households, kind, and submissive to their own husbands, so that the word of God will not be discredited.",
+  "variants": {
+   "kept_clear": {
+    "verse": "to be self-controlled, pure, managers of their households, kind, and submissive to their own husbands, so that the word of God will not be discredited.",
+    "rendering": "the word of God"
+   },
+   "simile": {
+    "verse": "to be self-controlled, pure, managers of their households, kind, and submissive to their own husbands, so that what God has spoken, like a trusted message from a king, will not be discredited.",
+    "rendering": "what God has spoken, like a trusted message from a king"
+   },
+   "plain": {
+    "verse": "to be self-controlled, pure, managers of their households, kind, and submissive to their own husbands, so that the message from God will not be discredited.",
+    "rendering": "the message from God"
+   },
+   "lost": {
+    "verse": "to be self-controlled, pure, managers of their households, kind, and submissive to their own husbands, so that the vocabulary of God will not be discredited.",
+    "rendering": "the vocabulary of God"
+   },
+   "distorted": {
+    "verse": "to be self-controlled, pure, managers of their households, kind, and submissive to their own husbands, so that the name of God's enemies will not be discredited.",
+    "rendering": "the name of God's enemies"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_xy14": {
+  "ref": "2:8",
+  "original": "and wholesome speech that is above reproach, so that anyone who opposes us will be ashamed to have nothing bad to say about us.",
+  "variants": {
+   "kept_clear": {
+    "verse": "and sound speech that is above reproach, so that anyone who opposes us will be ashamed to have nothing bad to say about us.",
+    "rendering": "sound"
+   },
+   "simile": {
+    "verse": "and speech that is like a healthy body, above reproach, so that anyone who opposes us will be ashamed to have nothing bad to say about us.",
+    "rendering": "speech that is like a healthy body"
+   },
+   "plain": {
+    "verse": "and correct speech that is above reproach, so that anyone who opposes us will be ashamed to have nothing bad to say about us.",
+    "rendering": "correct"
+   },
+   "lost": {
+    "verse": "and healthy-bodied speech that is above reproach, so that anyone who opposes us will be ashamed to have nothing bad to say about us.",
+    "rendering": "healthy-bodied"
+   },
+   "distorted": {
+    "verse": "and gentle speech that is above reproach, so that anyone who opposes us will be ashamed to have nothing bad to say about us.",
+    "rendering": "gentle"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_gp2z": {
+  "ref": "2:11",
+  "original": "For the grace of God has appeared, bringing salvation to everyone.",
+  "variants": {
+   "kept_clear": {
+    "verse": "For the grace of God has shone forth, bringing salvation to everyone.",
+    "rendering": "the grace of God has shone forth"
+   },
+   "simile": {
+    "verse": "For the grace of God has come like a dawning light, bringing salvation to everyone.",
+    "rendering": "the grace of God has come like a dawning light"
+   },
+   "plain": {
+    "verse": "For God has now shown his grace to people, bringing salvation to everyone.",
+    "rendering": "God has now shown his grace to people"
+   },
+   "lost": {
+    "verse": "For the grace of God has been in existence, bringing salvation to everyone.",
+    "rendering": "the grace of God has been in existence"
+   },
+   "distorted": {
+    "verse": "For the grace of God has vanished, bringing salvation to no one.",
+    "rendering": "the grace of God has vanished"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_n08x": {
+  "ref": "2:11",
+  "original": "For the grace of God has appeared, bringing salvation to everyone.",
+  "variants": {
+   "kept_clear": {
+    "verse": "For the grace of God has appeared, offering salvation to everyone.",
+    "rendering": "offering salvation to everyone"
+   },
+   "simile": {
+    "verse": "For the grace of God has appeared, like a savior coming to rescue everyone.",
+    "rendering": "like a savior coming to rescue everyone"
+   },
+   "plain": {
+    "verse": "For the grace of God has appeared, so that God can save everyone.",
+    "rendering": "so that God can save everyone"
+   },
+   "lost": {
+    "verse": "For the grace of God has appeared, a salvific presence among everyone.",
+    "rendering": "a salvific presence among everyone"
+   },
+   "distorted": {
+    "verse": "For the grace of God has appeared, bringing judgment to everyone.",
+    "rendering": "bringing judgment to everyone"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_qy8k": {
+  "ref": "2:12",
+  "original": "It instructs us to renounce ungodliness and worldly passions, and to live sensible, upright, and godly lives in the present age,",
+  "variants": {
+   "kept_clear": {
+    "verse": "It teaches us to renounce ungodliness and worldly passions, and to live sensible, upright, and godly lives in the present age,",
+    "rendering": "It teaches us"
+   },
+   "simile": {
+    "verse": "It trains us like a faithful tutor to renounce ungodliness and worldly passions, and to live sensible, upright, and godly lives in the present age,",
+    "rendering": "It trains us like a faithful tutor"
+   },
+   "plain": {
+    "verse": "God uses his grace to train us to renounce ungodliness and worldly passions, and to live sensible, upright, and godly lives in the present age,",
+    "rendering": "God uses his grace to train us"
+   },
+   "lost": {
+    "verse": "It appears to us to renounce ungodliness and worldly passions, and to live sensible, upright, and godly lives in the present age,",
+    "rendering": "It appears to us"
+   },
+   "distorted": {
+    "verse": "It forces us to renounce ungodliness and worldly passions, and to live sensible, upright, and godly lives in the present age,",
+    "rendering": "It forces us"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_gxe7": {
+  "ref": "2:14",
+  "original": "He gave Himself for us to redeem us from all lawlessness and to purify for Himself a people for His own possession, zealous for good deeds.",
+  "variants": {
+   "kept_clear": {
+    "verse": "He gave Himself for us to buy us back from all lawlessness and to purify for Himself a people for His own possession, zealous for good deeds.",
+    "rendering": "buy us back from all lawlessness"
+   },
+   "simile": {
+    "verse": "He gave Himself for us to set us free from all lawlessness, as a slave is ransomed from a cruel master, and to purify for Himself a people for His own possession, zealous for good deeds.",
+    "rendering": "set us free from all lawlessness, as a slave is ransomed from a cruel master"
+   },
+   "plain": {
+    "verse": "He gave Himself for us to rescue us from our lawless way of living and to purify for Himself a people for His own possession, zealous for good deeds.",
+    "rendering": "rescue us from our lawless way of living"
+   },
+   "lost": {
+    "verse": "He gave Himself for us to pay a price for us concerning all lawlessness and to purify for Himself a people for His own possession, zealous for good deeds.",
+    "rendering": "pay a price for us concerning all lawlessness"
+   },
+   "distorted": {
+    "verse": "He gave Himself for us to hand us over to all lawlessness and to purify for Himself a people for His own possession, zealous for good deeds.",
+    "rendering": "hand us over to all lawlessness"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_qt8f": {
+  "ref": "3:3",
+  "original": "For at one time we too were foolish, disobedient, misled, and enslaved to all sorts of desires and pleasures—living in malice and envy, being hated and hating one another.",
+  "variants": {
+   "kept_clear": {
+    "verse": "For at one time we too were foolish, disobedient, led astray, and slaves to all sorts of desires and pleasures that ruled over us—living in malice and envy, being hated and hating one another.",
+    "rendering": "led astray, and slaves to all sorts of desires and pleasures that ruled over us"
+   },
+   "simile": {
+    "verse": "For at one time we too were foolish, disobedient, misled, and held by all sorts of desires and pleasures as though we were their slaves—living in malice and envy, being hated and hating one another.",
+    "rendering": "misled, and held by all sorts of desires and pleasures as though we were their slaves"
+   },
+   "plain": {
+    "verse": "For at one time we too were foolish, disobedient, deceived into believing that pursuing all sorts of desires and pleasures would satisfy us, and unable to control those desires—living in malice and envy, being hated and hating one another.",
+    "rendering": "deceived into believing that pursuing all sorts of desires and pleasures would satisfy us, and unable to control those desires"
+   },
+   "lost": {
+    "verse": "For at one time we too were foolish, disobedient, wandering, and serving all sorts of desires and pleasures—living in malice and envy, being hated and hating one another.",
+    "rendering": "wandering, and serving all sorts of desires and pleasures"
+   },
+   "distorted": {
+    "verse": "For at one time we too were foolish, disobedient, wise in mastering all sorts of desires and pleasures, and fully in control of them—living in malice and envy, being hated and hating one another.",
+    "rendering": "wise in mastering all sorts of desires and pleasures, and fully in control of them"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_ba5a": {
+  "ref": "3:4",
+  "original": "But when the kindness of God our Savior and His love for mankind appeared,",
+  "variants": {
+   "kept_clear": {
+    "verse": "But when the kindness of God our Savior and His love for mankind appeared,",
+    "rendering": "when the kindness of God our Savior and His love for mankind appeared"
+   },
+   "simile": {
+    "verse": "But when the kindness of God our Savior and His love for mankind shone out like a light breaking through the darkness,",
+    "rendering": "when the kindness of God our Savior and His love for mankind shone out like a light breaking through the darkness"
+   },
+   "plain": {
+    "verse": "But when God our Savior showed his kindness and his love for mankind,",
+    "rendering": "when God our Savior showed his kindness and his love for mankind"
+   },
+   "lost": {
+    "verse": "But when the kindness of God our Savior and His love for mankind were a certain visible form in the sky,",
+    "rendering": "when the kindness of God our Savior and His love for mankind were a certain visible form in the sky"
+   },
+   "distorted": {
+    "verse": "But when the kindness of God our Savior and His love for mankind disappeared,",
+    "rendering": "when the kindness of God our Savior and His love for mankind disappeared"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_k1a6": {
+  "ref": "3:5",
+  "original": "He saved us, not by the righteous deeds we had done, but according to His mercy, through the washing of new birth and renewal by the Holy Spirit.",
+  "variants": {
+   "kept_clear": {
+    "verse": "He saved us, not by the righteous deeds we had done, but according to His mercy, through the washing that brings new birth and renewal by the Holy Spirit.",
+    "rendering": "the washing that brings new birth"
+   },
+   "simile": {
+    "verse": "He saved us, not by the righteous deeds we had done, but according to His mercy, through a cleansing like a washing that gives a new birth and renewal by the Holy Spirit.",
+    "rendering": "a cleansing like a washing that gives a new birth"
+   },
+   "plain": {
+    "verse": "He saved us, not by the righteous deeds we had done, but according to His mercy, through being forgiven of our sins and born again spiritually and renewal by the Holy Spirit.",
+    "rendering": "being forgiven of our sins and born again spiritually"
+   },
+   "lost": {
+    "verse": "He saved us, not by the righteous deeds we had done, but according to His mercy, through the bath of a second beginning and renewal by the Holy Spirit.",
+    "rendering": "the bath of a second beginning"
+   },
+   "distorted": {
+    "verse": "He saved us, not by the righteous deeds we had done, but according to His mercy, through the washing of our hands by careful ritual and renewal by the Holy Spirit.",
+    "rendering": "the washing of our hands by careful ritual"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_fby9": {
+  "ref": "3:6",
+  "original": "This is the Spirit He poured out on us abundantly through Jesus Christ our Savior,",
+  "variants": {
+   "kept_clear": {
+    "verse": "This is the Spirit He poured out on us richly through Jesus Christ our Savior,",
+    "rendering": "This is the Spirit He poured out on us richly"
+   },
+   "simile": {
+    "verse": "This is the Spirit He gave to us as abundantly as water poured out freely through Jesus Christ our Savior,",
+    "rendering": "This is the Spirit He gave to us as abundantly as water poured out freely"
+   },
+   "plain": {
+    "verse": "This is the Spirit He gave to us generously through Jesus Christ our Savior,",
+    "rendering": "This is the Spirit He gave to us generously"
+   },
+   "lost": {
+    "verse": "This is the Spirit through Jesus Christ our Savior,",
+    "rendering": ""
+   },
+   "distorted": {
+    "verse": "This is the Spirit He held back from us and gave only sparingly through Jesus Christ our Savior,",
+    "rendering": "This is the Spirit He held back from us and gave only sparingly"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_q1cm": {
+  "ref": "3:7",
+  "original": "so that, having been justified by His grace, we would become heirs with the hope of eternal life.",
+  "variants": {
+   "kept_clear": {
+    "verse": "so that, having been justified by His grace, we would become heirs who hope to inherit eternal life.",
+    "rendering": "we would become heirs who hope to inherit eternal life"
+   },
+   "simile": {
+    "verse": "so that, having been justified by His grace, we would receive eternal life, as children receive an inheritance from their father, and we hope for it.",
+    "rendering": "we would receive eternal life, as children receive an inheritance from their father, and we hope for it"
+   },
+   "plain": {
+    "verse": "so that, having been justified by His grace, we would receive the eternal life that God has promised us, and we hope for it.",
+    "rendering": "we would receive the eternal life that God has promised us, and we hope for it"
+   },
+   "lost": {
+    "verse": "so that, having been justified by His grace, we would become heirs according to the hope of the age of eternal life.",
+    "rendering": "we would become heirs according to the hope of the age of eternal life"
+   },
+   "distorted": {
+    "verse": "so that, having been justified by His grace, we would earn eternal life by our own hope.",
+    "rendering": "we would earn eternal life by our own hope"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_inh5": {
+  "ref": "3:11",
+  "original": "knowing that such a man is corrupt and sinful; he is self-condemned.",
+  "variants": {
+   "kept_clear": {
+    "verse": "knowing that such a man has turned aside from the right path and sinful; he is self-condemned.",
+    "rendering": "has turned aside from the right path"
+   },
+   "simile": {
+    "verse": "knowing that such a man is like someone who has wandered off the right road and sinful; he is self-condemned.",
+    "rendering": "is like someone who has wandered off the right road"
+   },
+   "plain": {
+    "verse": "knowing that such a man has stopped doing what is right and sinful; he is self-condemned.",
+    "rendering": "has stopped doing what is right"
+   },
+   "lost": {
+    "verse": "knowing that such a man is turned inside out and sinful; he is self-condemned.",
+    "rendering": "is turned inside out"
+   },
+   "distorted": {
+    "verse": "knowing that such a man is confused and sinful; he is self-condemned.",
+    "rendering": "is merely mistaken"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_mji4": {
+  "ref": "3:14",
+  "original": "And our people must also learn to devote themselves to good works in order to meet the pressing needs of others, so that they will not be unfruitful.",
+  "variants": {
+   "kept_clear": {
+    "verse": "And our people must also learn to devote themselves to good works in order to meet the pressing needs of others, so that they will not be trees without fruit.",
+    "rendering": "so that they will not be trees without fruit"
+   },
+   "simile": {
+    "verse": "And our people must also learn to devote themselves to good works in order to meet the pressing needs of others, so that they will not be like barren trees that bear no fruit.",
+    "rendering": "so that they will not be like barren trees that bear no fruit"
+   },
+   "plain": {
+    "verse": "And our people must also learn to devote themselves to good works in order to meet the pressing needs of others, so that they will not lead useless lives.",
+    "rendering": "so that they will not lead useless lives"
+   },
+   "lost": {
+    "verse": "And our people must also learn to devote themselves to good works in order to meet the pressing needs of others, so that they will not be seedless.",
+    "rendering": "so that they will not be seedless"
+   },
+   "distorted": {
+    "verse": "And our people must also learn to devote themselves to good works in order to meet the pressing needs of others, so that they will not be overly productive.",
+    "rendering": "so that they will not be overly productive"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ },
+ "fig_f4vc": {
+  "ref": "3:15",
+  "original": "All who are with me send you greetings. Greet those who love us in the faith. Grace be with all of you.",
+  "variants": {
+   "kept_clear": {
+    "verse": "All who are with me send you greetings. Greet those who love us in the faith. Grace be with all of you.",
+    "rendering": "those who love us in the faith"
+   },
+   "simile": {
+    "verse": "All who are with me send you greetings. Greet those who love us as fellow believers do, bound together in the faith. Grace be with all of you.",
+    "rendering": "those who love us as fellow believers do, bound together in the faith"
+   },
+   "plain": {
+    "verse": "All who are with me send you greetings. Greet those fellow believers who love us because we share the same faith. Grace be with all of you.",
+    "rendering": "those fellow believers who love us because we share the same faith"
+   },
+   "lost": {
+    "verse": "All who are with me send you greetings. Greet those who love us in faith. Grace be with all of you.",
+    "rendering": "those who love us in faith"
+   },
+   "distorted": {
+    "verse": "All who are with me send you greetings. Greet those who doubt our faith but love us anyway. Grace be with all of you.",
+    "rendering": "those who doubt our faith but love us anyway"
+   }
+  },
+  "generator": "anthropic/claude-sonnet-5.5"
+ }
+}

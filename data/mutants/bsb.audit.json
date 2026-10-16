@@ -1,0 +1,48 @@
+{
+ "_about": "Claude's read (2026-10-16) of the 11 'lost' mutants that all three checkers called kept_clear. Generator labels are overridden by these in scoring. Needs a human second look. 'clarity_passes' overrides the clarity gold where the handling label passes but the wording is awkward.",
+ "1:4~fig_lost~fig_gu55": {
+  "label": "kept_clear",
+  "note": "'my true offspring' keeps the child image and is clear"
+ },
+ "1:8~fig_lost~fig_vkq1": {
+  "label": "kept_clear",
+  "note": "'a good-lover' is awkward, but the meaning is recoverable",
+  "clarity_passes": false
+ },
+ "1:12~fig_lost~fig_y3zb": {
+  "label": "kept_clear",
+  "note": "'liars at every moment of time' keeps (even sharpens) the hyperbole"
+ },
+ "1:12~fig_lost~fig_h3jb": {
+  "label": "lost",
+  "note": "'beasts of the field' drops 'evil' and reads as literal animals: genuine miss"
+ },
+ "1:13~fig_lost~fig_je3r": {
+  "label": "kept_clear",
+  "note": "'well in the faith' keeps the health image, clear enough"
+ },
+ "1:15~fig_lost~fig_n3wk": {
+  "label": "kept_clear",
+  "note": "'stained ... spotless' keeps the purity image, clear"
+ },
+ "2:3~fig_lost~fig_g9re": {
+  "label": "kept_clear",
+  "note": "'servants of much wine' keeps the slavery image, understandable"
+ },
+ "2:11~fig_lost~fig_n08x": {
+  "label": "lost",
+  "note": "'a salvific presence among everyone' obscures 'bringing salvation': genuine miss"
+ },
+ "3:3~fig_lost~fig_qt8f": {
+  "label": "kept_clear",
+  "note": "'wandering ... serving desires' keeps both images"
+ },
+ "3:5~fig_lost~fig_k1a6": {
+  "label": "lost",
+  "note": "'bath of a second beginning' is obscure to an ordinary reader: genuine miss"
+ },
+ "3:7~fig_lost~fig_q1cm": {
+  "label": "kept_clear",
+  "note": "the 'heirs' figure is kept; wording is clunky but clear"
+ }
+}

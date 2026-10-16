@@ -1,0 +1,9 @@
+{
+ "t_auto": 0.9,
+ "tiers": {
+  "auto": 147,
+  "cleared_after_back_translation": 5,
+  "human": 92
+ },
+ "explain_model": "google/gemma-4-26b-a4b-it"
+}
