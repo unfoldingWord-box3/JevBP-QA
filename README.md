@@ -28,9 +28,10 @@ We ran it on the letter to Titus in three settings:
   right), Jev sent 15% of English key-term items to review, and 32% of Hindi and Arabic ones, at
   our default cut-off. A looser cut-off trades these: in English, 8% of good items flagged and 97% of
   planted errors still caught.
-- **Most English flags are not about the English.** 33 of the 48 items Jev flagged in the BSB were
-  also flagged in both Hindi and Arabic. These point at the checking agenda (for example a
-  Translation Words link whose article does not fit the verse), not at the translation. Flags
+- **Many English key-term flags are not about the English.** Of the 28 BSB key terms Jev flagged,
+  23 were also flagged in Hindi or Arabic, and 14 in both. These point at the checking agenda (for
+  example a Translation Words link whose article does not fit the verse), not at the translation.
+  Only 5 BSB key-term flags were unique to the BSB, against 21 for Hindi and 19 for Arabic. Flags
   unique to one translation are the ones worth a checker's time first.
 - **Jev matches an ordinary LLM on catching errors, and is faster, cheaper, and less jumpy.**
   Claude Haiku 5.5, asked the same questions, caught errors at the same rate. It took 9–10 times as
@@ -105,8 +106,10 @@ Each case is scored at a cut-off: below 0.9 means "sent to review". The tables r
 Two caveats on the planted figure rewrites. First, all three checkers agreed that 11 of the 31
 English "lost" rewrites still kept the image clearly, so I (Claude) re-read those 11: 8 do keep
 the image, and 3 are genuine misses. Those labels are overridden in
-[`data/mutants/bsb.audit.json`](data/mutants/bsb.audit.json) and need a human second look. The
-Hindi and Arabic rewrites have not been audited. Second, planted cases carry one checking item per
+[`data/mutants/bsb.audit.json`](data/mutants/bsb.audit.json) and need a human second look. Because
+only items the checkers got "wrong" were re-read, the audit can only raise their scores: before it,
+Jev caught 92–94% of English figure-handling faults at 0.9; after it, 100%. The Hindi and Arabic
+rewrites have not been audited. Second, planted cases carry one checking item per
 call, while real verses carry up to 11.
 
 ## Results
@@ -140,8 +143,9 @@ The cut-off trades false alarms for misses. For key terms: at 0.8, 8% of real it
 | Claude Haiku 5.5 | 2,370 ms | $0.124 | 23% | 74% | 99% |
 
 **Does the "approved term" field cause false alarms?** No. Removing the target-language headwords
-from the state changed real key-term flags by about one point (15% → 16%) with the same detection.
-The false alarms come from somewhere else (see F2 below).
+from the state moved real key-term flags by 1–4 points in each language (English 15% → 16%, Hindi
+32% → 36%, Arabic 32% → 29%) with the same detection. The false alarms come from somewhere else
+(see F2 below).
 
 ### Phase 1: Hindi (IRV) and Arabic (NAV)
 
@@ -153,9 +157,10 @@ The false alarms come from somewhere else (see F2 below).
 
 Verse swaps were caught 99–100% in both. Exact handling label: 86% in both.
 
-Claude Haiku 5.5 flagged the same share of real key terms (32–33%). So the doubled flag rate
-against English is probably more about these two translations (both are freer than the BSB) and the
-checking agenda than about Jev reading Hindi or Arabic badly.
+Claude Haiku 5.5 flagged the same share of real key terms (32–33%), and removing the Hindi and
+Arabic headwords did not lower Jev's rate. So the doubled flag rate against English is probably
+more about these two translations (both are freer than the BSB) and the checking agenda than
+about Jev reading Hindi or Arabic badly. That is an inference; human labels would settle it.
 
 **Back-translation tier.** Jev flagged 100 Hindi items and 89 Arabic ones. After Gemma
 back-translated each flagged verse, Jev re-checked and cleared 8 Hindi and 6 Arabic items. The rest
@@ -200,11 +205,12 @@ different language in Chad. The manifest names the language "Masalit", so we tre
 - **F1. Jev works as a fast first-pass screen for aligned translations in languages it reads.**
   Detection of planted errors is 97–100% across English, Hindi, and Arabic, at about $0.00005 and
   0.26 s per verse.
-- **F2. Most false alarms come from the checking agenda, not the translation.** 33 of the BSB's 48
-  flags recur in both Hindi and Arabic. Examples: προσδεχόμενοι in 2:13 is linked to the
-  "receive, welcome" article, but every translation correctly says "await"; παρακαλεῖν in 1:9 is
-  linked to the "courage" article. Only 5 BSB flags were unique to the BSB, against 33 for Hindi
-  and 22 for Arabic.
+- **F2. Many key-term false alarms come from the checking agenda, not the translation.** 23 of the
+  BSB's 28 key-term flags recur in Hindi or Arabic (14 in both). Examples: προσδεχόμενοι in 2:13 is
+  linked to the "receive, welcome" article, but every translation correctly says "await";
+  παρακαλεῖν in 1:9 is linked to the "courage" article. Only 5 BSB key-term flags were unique to
+  the BSB, against 21 for Hindi and 19 for Arabic. (All 17 BSB clarity flags also recur, but that
+  is the strict cut-off in F5, not the agenda.)
 - **F3. Jev's probabilities are usable for routing.** Calibration error is 0.05–0.08 for key terms
   and figure handling in all three readable languages. When it says 0.9, about 90% of those items pass.
 - **F4. A general LLM detects as well but is a poor router.** Haiku caught the same planted errors,

@@ -17,6 +17,7 @@ Sources (pinned commits):
 |---|---|---|---|---|
 | jev-jev-latest | jev-1.13.0 | 453 | 267 ms | $0.0203 |
 | jev-jev-preview | jev-1.14.0 | 453 | 257 ms | $0.0203 |
+| jev-jev-preview+no-approved | jev-1.14.0 | 453 | 259 ms | $0.0192 |
 | openrouter-claude-haiku-5.5 | anthropic/claude-haiku-5.5 | 453 | 2662 ms | $0.1423 |
 
 ## Key terms (noul)
@@ -27,6 +28,7 @@ Real flagged = share of the published translation's items sent to review (lower 
 |---|---|---|---|---|---|---|---|
 | jev-jev-latest | 182 | 32% | 206 | 98% | 99% | 0.947 | 0.046 |
 | jev-jev-preview | 182 | 32% | 206 | 98% | 99% | 0.954 | 0.054 |
+| jev-jev-preview+no-approved | 182 | 36% | 206 | 99% | 100% | 0.961 | 0.080 |
 | openrouter-claude-haiku-5.5 | 182 | 32% | 206 | 99% | 99% | 0.972 | 0.057 |
 
 By case type: share sent to review / mean pass probability.
@@ -35,6 +37,7 @@ By case type: share sent to review / mean pass probability.
 |---|---|---|---|---|
 | jev-jev-latest | 97% / 0.31 | 99% / 0.11 | 32% / 0.82 | 99% / 0.10 |
 | jev-jev-preview | 97% / 0.31 | 99% / 0.11 | 32% / 0.84 | 99% / 0.08 |
+| jev-jev-preview+no-approved | 97% / 0.39 | 100% / 0.11 | 36% / 0.85 | 100% / 0.09 |
 | openrouter-claude-haiku-5.5 | 97% / 0.12 | 100% / 0.09 | 32% / 0.81 | 99% / 0.07 |
 
 ## Figure handling (choice)
@@ -45,6 +48,7 @@ Real flagged = share of the published translation's items sent to review (lower 
 |---|---|---|---|---|---|---|---|
 | jev-jev-latest | 31 | 42% | 62 | 97% | 100% | 0.969 | 0.063 |
 | jev-jev-preview | 31 | 48% | 62 | 98% | 100% | 0.971 | 0.069 |
+| jev-jev-preview+no-approved | 31 | 48% | 62 | 98% | 100% | 0.971 | 0.070 |
 | openrouter-claude-haiku-5.5 | 31 | 94% | 62 | 100% | 100% | 0.966 | 0.102 |
 
 By case type: share sent to review / mean pass probability.
@@ -53,9 +57,10 @@ By case type: share sent to review / mean pass probability.
 |---|---|---|---|---|---|---|---|
 | jev-jev-latest | 100% / 0.04 | 26% / 0.91 | 94% / 0.40 | 6% / 0.95 | 0% / 0.98 | 42% / 0.82 | 100% / 0.01 |
 | jev-jev-preview | 100% / 0.04 | 35% / 0.89 | 97% / 0.39 | 13% / 0.93 | 13% / 0.96 | 48% / 0.82 | 100% / 0.01 |
+| jev-jev-preview+no-approved | 100% / 0.04 | 35% / 0.89 | 97% / 0.39 | 13% / 0.93 | 13% / 0.96 | 48% / 0.82 | 100% / 0.01 |
 | openrouter-claude-haiku-5.5 | 100% / 0.09 | 71% / 0.83 | 100% / 0.35 | 55% / 0.86 | 29% / 0.92 | 94% / 0.74 | 100% / 0.06 |
 
-Exact-label accuracy on rewritten figures (kept / simile / plain / lost / distorted): jev-jev-latest 86%, jev-jev-preview 86%, openrouter-claude-haiku-5.5 87%
+Exact-label accuracy on rewritten figures (kept / simile / plain / lost / distorted): jev-jev-latest 86%, jev-jev-preview 86%, jev-jev-preview+no-approved 86%, openrouter-claude-haiku-5.5 87%
 
 ## Figure clarity (score)
 
@@ -65,6 +70,7 @@ Real flagged = share of the published translation's items sent to review (lower 
 |---|---|---|---|---|---|---|---|
 | jev-jev-latest | 31 | 77% | 62 | 98% | 100% | 0.948 | 0.113 |
 | jev-jev-preview | 31 | 84% | 62 | 100% | 100% | 0.954 | 0.142 |
+| jev-jev-preview+no-approved | 31 | 87% | 62 | 100% | 100% | 0.955 | 0.142 |
 | openrouter-claude-haiku-5.5 | 31 | 90% | 62 | 100% | 100% | 0.973 | 0.098 |
 
 By case type: share sent to review / mean pass probability.
@@ -73,6 +79,7 @@ By case type: share sent to review / mean pass probability.
 |---|---|---|---|---|---|---|---|
 | jev-jev-latest | 100% / 0.04 | 74% / 0.71 | 97% / 0.30 | 26% / 0.89 | 100% / 0.69 | 77% / 0.69 | 100% / 0.01 |
 | jev-jev-preview | 100% / 0.05 | 81% / 0.72 | 100% / 0.32 | 42% / 0.86 | 100% / 0.71 | 84% / 0.68 | 100% / 0.01 |
+| jev-jev-preview+no-approved | 100% / 0.05 | 81% / 0.72 | 100% / 0.32 | 42% / 0.86 | 100% / 0.71 | 87% / 0.68 | 100% / 0.01 |
 | openrouter-claude-haiku-5.5 | 100% / 0.08 | 84% / 0.79 | 100% / 0.36 | 48% / 0.89 | 77% / 0.83 | 90% / 0.75 | 100% / 0.08 |
 
 ## Detail: jev-jev-latest
@@ -131,6 +138,35 @@ Figure handling, gold label (rows) vs answer (columns):
 | distorted | 0 | 0 | 0 | 0 | 31 |
 
 Real items flagged at 0.9: 100. Lowest ten: 2:15 kt_rvsu (0.05); 3:3 kt_strs (0.06); 2:13 kt_eqaj (0.10); 1:9 kt_nngz (0.11); 3:15 fig_f4vc_clarity (0.15); 2:10 kt_d9wq (0.18); 1:10 fig_pu74_clarity (0.19); 2:3 kt_khhe (0.20); 3:15 fig_f4vc_handling (0.21); 2:8 kt_zdzc (0.23)
+
+
+## Detail: jev-jev-preview+no-approved
+
+Calibration, key terms (noul): 0.0–0.2: n=278, said 0.06, was 0.01; 0.2–0.4: n=59, said 0.29, was 0.07; 0.4–0.6: n=44, said 0.50, was 0.32; 0.6–0.8: n=36, said 0.70, was 0.56; 0.8–1.0: n=153, said 0.93, was 0.92
+
+Calibration, figure handling (choice): 0.0–0.2: n=73, said 0.03, was 0.01; 0.2–0.4: n=8, said 0.32, was 0.50; 0.4–0.6: n=11, said 0.51, was 0.36; 0.6–0.8: n=15, said 0.72, was 0.47; 0.8–1.0: n=110, said 0.95, was 0.98
+
+Calibration, figure clarity (score): 0.0–0.2: n=72, said 0.03, was 0.04; 0.2–0.4: n=19, said 0.30, was 0.26; 0.4–0.6: n=26, said 0.50, was 0.69; 0.6–0.8: n=34, said 0.70, was 0.97; 0.8–1.0: n=66, said 0.89, was 0.98
+
+Threshold sweep (real items flagged / seeded faults caught, verse swaps excluded):
+
+| question | t=0.5 | t=0.7 | t=0.8 | t=0.9 | t=0.95 |
+|---|---|---|---|---|---|
+| Key terms (noul) | 5% / 84% | 15% / 94% | 23% / 96% | 36% / 99% | 57% / 100% |
+| Figure handling (choice) | 13% / 76% | 19% / 89% | 29% / 97% | 48% / 98% | 68% / 98% |
+| Figure clarity (score) | 23% / 90% | 35% / 98% | 58% / 98% | 87% / 100% | 97% / 100% |
+
+Figure handling, gold label (rows) vs answer (columns):
+
+| gold \ answer | kept_clear | simile | plain | lost | distorted |
+|---|---|---|---|---|---|
+| kept_clear | 29 | 0 | 0 | 2 | 0 |
+| simile | 1 | 29 | 1 | 0 | 0 |
+| plain | 1 | 0 | 29 | 1 | 0 |
+| lost | 8 | 0 | 6 | 16 | 1 |
+| distorted | 0 | 0 | 0 | 0 | 31 |
+
+Real items flagged at 0.9: 108. Lowest ten: 3:3 kt_strs (0.10); 2:15 kt_rvsu (0.12); 3:15 fig_f4vc_clarity (0.15); 1:9 kt_nngz (0.16); 1:10 fig_pu74_clarity (0.19); 3:15 fig_f4vc_handling (0.19); 2:12 fig_qy8k_clarity (0.25); 3:5 fig_k1a6_clarity (0.27); 2:13 kt_eqaj (0.28); 2:8 fig_xy14_clarity (0.30)
 
 
 ## Detail: openrouter-claude-haiku-5.5
