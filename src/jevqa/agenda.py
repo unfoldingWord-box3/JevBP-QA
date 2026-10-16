@@ -87,6 +87,8 @@ def build_cases(target_key: str) -> list[Case]:
         if en is None:
             continue
         local = (_article(t.tw, slug) if t.tw != "en_tw" else en) if t.tw else None
+        if local and t.language != "English" and local[0].isascii():
+            local = None  # article not translated yet (some BSOJ/ar_tw headings are still English)
         words = usfm.find_phrase(greek[ref], row["OrigWords"], int(row["Occurrence"]))
         terms.setdefault(ref, []).append(KeyTerm(
             id=f"kt_{row['ID']}", ref=ref, greek=row["OrigWords"], occurrence=int(row["Occurrence"]),

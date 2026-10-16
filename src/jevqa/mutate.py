@@ -28,9 +28,9 @@ MUTANTS = ROOT / "data" / "mutants"
 GENERATOR = "anthropic/claude-sonnet-5.5"
 
 
-def _first_term(approved: str | None, fallback: str) -> str:
+def _first_term(approved: str) -> str:
     """First headword of a tW title: 'repent, repentance' -> 'repent' (Arabic titles use '،')."""
-    return re.split(r"[,،;/(]", approved or fallback)[0].strip()
+    return re.split(r"[,،;/(]", approved)[0].strip()
 
 
 # Leading function words that alignment groups carry along with the content word ("of God", "an apostle").
@@ -69,9 +69,10 @@ def _replace_unique(text: str, old: str, new: str) -> str | None:
 
 
 def key_term_mutants(cases: list[Case], seed: int = 7) -> list[Case]:
-    """Needs cases built with approved terms, so wrong terms come from the target language's tW."""
+    """Needs cases built with approved terms: wrong terms come only from the target language's tW headwords."""
     rng = random.Random(seed)
-    pool = sorted({(k.article, _first_term(k.approved, k.term)) for c in cases for k in c.key_terms if k.article.startswith("kt/")})
+    pool = sorted({(k.article, _first_term(k.approved)) for c in cases for k in c.key_terms
+                   if k.approved and k.article.startswith("kt/")})
     out = []
     for c in cases:
         for k in c.key_terms:
@@ -140,15 +141,16 @@ def _generate(case: Case, fig) -> dict:
         "response_format": {"type": "json_object"},
         "temperature": 0.3,
     }
+    error = "no usable variants"
     for attempt in range(3):
         try:
             r = backends._post(backends.OPENROUTER_URL, body, {"Authorization": f"Bearer {backends.key('OPENROUTER_API_KEY')}"})
             got = backends.parse_json(r["choices"][0]["message"]["content"])
             if set(HANDLING) <= set(got):
                 return got
-        except (ValueError, KeyError, RuntimeError):
-            pass
-    return None
+        except Exception as e:  # any failure: keep the rest of the batch, report it below
+            error = str(e)[:200]
+    return error
 
 
 def figure_mutants(target: str, cases: list[Case]) -> list[Case]:
@@ -156,14 +158,17 @@ def figure_mutants(target: str, cases: list[Case]) -> list[Case]:
     saved = json.loads(path.read_text()) if path.exists() else {}
     todo = [(c, f) for c in cases for f in c.figures if f.id not in saved and f.rendering]
     if todo:
+        failed = {}
         with ThreadPoolExecutor(8) as pool:
             for (c, f), got in zip(todo, pool.map(lambda cf: _generate(*cf), todo)):
-                if got is None:
-                    print(f"  generator failed for {f.id}; skipped (re-run to retry)")
+                if isinstance(got, str):
+                    failed[f.id] = got
                     continue
                 saved[f.id] = {"ref": c.ref, "original": c.target, "variants": got, "generator": GENERATOR}
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(saved, ensure_ascii=False, indent=1) + "\n")
+        if failed:  # stop rather than score an incomplete test set; successes are saved, so a re-run only retries these
+            raise RuntimeError(f"figure rewrites failed for {len(failed)} figures, re-run to retry: {failed}")
     audit_path = MUTANTS / f"{target}.audit.json"
     audit = json.loads(audit_path.read_text()) if audit_path.exists() else {}
     out = []

@@ -135,7 +135,8 @@ def route(target: str, backend: backends.Backend, cond: Condition = Condition(),
     for row, case, flagged, ex, recheck in done:
         tiers["auto"] += len(qs.question_names(case)) - len(flagged)
         for n in flagged:
-            p2 = recheck.answers[n].p_pass if recheck and n in recheck.answers else None
+            # an item the checker never answered goes to a human; a recheck cannot clear it
+            p2 = recheck.answers[n].p_pass if recheck and n in recheck.answers and n in row["answers"] else None
             if p2 is not None and p2 >= t_auto:
                 tiers["cleared_after_back_translation"] += 1
                 continue

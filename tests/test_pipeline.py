@@ -87,3 +87,6 @@ def test_conditions_share_one_fault_set():
         other = run.cases_for("hi_irv", cond)
         assert [(c.id, c.target) for c in other] == [(c.id, c.target) for c in full]
     assert not any(k.approved for c in run.cases_for("hi_irv", run.Condition(approved=False)) for k in c.key_terms)
+    bare = run.cases_for("hi_irv", run.Condition(renderings=False))
+    assert not any(k.rendering for c in bare for k in c.key_terms)
+    assert not any(f.rendering for c in bare for f in c.figures)

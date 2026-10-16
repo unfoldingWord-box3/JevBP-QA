@@ -26,17 +26,17 @@ We ran it on the letter to Titus in three settings:
   rewrote a figure of speech so its meaning was lost or distorted, it caught 98–100%. Detection
   holds when the aligned words are left out of the request, so Jev is reading the verse.
 - **It also flags some good text.** On the published translations (which we assume are mostly
-  right), Jev sent 17% of English key-term items to review, and 31–32% of Hindi and Arabic ones, at
+  right), Jev sent 17% of English key-term items to review, and 31% of Hindi and Arabic ones, at
   our default cut-off of 0.9. A looser cut-off trades these: in English at 0.8, 8% of good items
   were flagged and 98% of planted errors still caught.
 - **Many English key-term flags are not about the English.** Of the 31 BSB key terms Jev flagged,
-  25 were also flagged in Hindi or Arabic, and 16 in both. These point at the checking agenda (for
+  25 were also flagged in Hindi or Arabic, and 17 in both. These point at the checking agenda (for
   example a Translation Words link whose article does not fit the verse), not at the translation.
-  Only 6 BSB key-term flags were unique to the BSB, against 17 for Hindi and 19 for Arabic. Flags
+  Only 6 BSB key-term flags were unique to the BSB, against 17 for Hindi and 16 for Arabic. Flags
   unique to one translation are the ones worth a checker's time first.
 - **An ordinary LLM catches errors as well, and ranks slightly better, but is a poor router.**
-  Claude Haiku 5.5, asked the same questions, caught the same planted errors. It took 9–10 times as
-  long per verse (2.3–2.6 s against 0.26 s) and cost about 7 times as much. On real figures of
+  Claude Haiku 5.5, asked the same questions, caught the same planted errors. On real verses it took
+  about 14 times as long (3.6–3.9 s against 0.26 s) and cost about 7 times as much. On real figures of
   speech it spread its answer across several options and sent 84–97% of them to review, against
   13–48% for Jev.
 - **On Masalit, Jev knows it can't read the text.** Its answers sit near 50/50 and 99–100% of items
@@ -44,7 +44,8 @@ We ran it on the letter to Titus in three settings:
   place, and adding the English source text the translators used does not help. Zero-shot
   checking of a language with no model support does not work this way. Jev needs something it
   can read: an alignment, a key-term glossary, or a human back-translation.
-- **Cost is negligible.** The 5,820 Jev calls behind the published results cost $0.26.
+- **Cost is negligible.** The published results took 5,355 distinct Jev calls costing $0.24, about
+  $0.00008 per real verse.
 
 ## How it works
 
@@ -92,10 +93,10 @@ that always says pass would score perfectly. We built test cases with known answ
 | Case type | What it is | Correct answer |
 |---|---|---|
 | Real verse | The published text, unchanged | Assumed pass. This is an assumption: some flags on real text may be real problems. |
-| Wrong term | The aligned rendering of a key term swapped for another Translation Words term in the same language (e.g. "Savior" → "good") | Fail |
+| Wrong term | The aligned rendering of a key term swapped for another Translation Words headword in the same language (e.g. "Savior" → "good"); tW articles still titled in English are left out of the pool | Fail |
 | Omitted term | The rendering of a key term deleted | Fail |
 | Figure rewrite | Claude Sonnet 5.5 rewrote each figure five ways (kept clear, simile, plain, lost, distorted) in the target language | Pass for the first three, fail for lost and distorted |
-| Verse swap | The translation text of a far-away verse placed under this verse's Greek | Fail, except key terms that also occur in the swapped-in verse, which are not scored |
+| Verse swap | The translation text of a far-away verse placed under this verse's Greek | Fail, except key terms whose Translation Words article is also linked in the swapped-in verse, which are not scored |
 
 Wrong and omitted terms are planted only where the rendering occurs once in the verse, so the edit
 always hits the aligned word. Every run condition below uses the same set of planted cases.
@@ -119,12 +120,15 @@ Caveats on the planted cases:
   before it, Jev caught 92–95% of English figure-handling faults at 0.9; after it, 100%. The Hindi
   and Arabic rewrites have not been audited.
 - **Planted cases carry one checking item per call**, while real verses carry up to 11.
-- **Omitted terms and verse swaps arrive with no aligned words**, which a model could use as a hint.
-  The "no renderings" condition removes the aligned words from every case; detection stayed at
-  98–99% (see Phase 0).
-- **Arabic planted terms sometimes break grammar.** Arabic attaches "and", "to", and "the" to the
-  word, and multi-word renderings are replaced whole, so some Arabic faults are easier to spot
-  than English ones.
+- **Some planted cases arrive with no aligned words**: every omitted term, every verse swap, and
+  the "lost" rewrites that delete the figure (1 of 31 English, 12 Hindi, 15 Arabic). Real items
+  always have aligned words, so a model could use the gap as a hint. The "no renderings" condition
+  removes aligned words from every case: key-term detection stayed at 98–99%, but lost-figure
+  detection fell from 97% to 90% in Hindi and from 100% to 97% in Arabic, so the hint helped a
+  little there.
+- **Planted terms sometimes break grammar.** English omissions leave stray words ("an of Jesus
+  Christ"); Arabic attaches "and", "to", and "the" to the word, and multi-word renderings are
+  replaced whole. Broken grammar makes a fault easier to spot.
 
 ## Results
 
@@ -133,9 +137,10 @@ throughout. Full tables, threshold sweeps, calibration bins, and confusion matri
 report: [BSB](runs/bsb/report.md), [Hindi IRV](runs/hi_irv/report.md),
 [Arabic NAV](runs/ar_nav/report.md), [Masalit](runs/mdg_ssv/report.md).
 
-Jev is close to deterministic but not exactly: sending identical requests twice moved pass
-probabilities by 0.01 on average (at most 0.13), and 2–7 of the 244 real items per translation
-crossed the 0.9 cut-off between runs. Differences of a point or two between runs are noise.
+Jev is close to deterministic but not exactly. In English and Hindi, sending identical requests
+twice moved pass probabilities by about 0.01 on average (at most 0.10), and 1–12 of the 244 real
+items crossed the 0.9 cut-off between runs. A figure question has only 31 real items, so one
+crossing moves its rate by about 3 points. Treat differences under about 5 points as noise.
 
 ### Phase 0: English (BSB)
 
@@ -154,42 +159,44 @@ The cut-off trades false alarms for misses. For key terms: at 0.8, 8% of real it
 
 **Baseline comparison (same 453 cases):**
 
-| Checker | Median time per call | Cost for 453 calls | Real key terms flagged | Real figures flagged (handling) | Key-term faults caught | Key-term AUROC |
+| Checker | Median time per real verse | Cost for 453 calls | Real key terms flagged | Real figures flagged (handling) | Key-term faults caught | Key-term AUROC |
 |---|---|---|---|---|---|---|
-| jev-preview | 257 ms | $0.019 | 17% | 13% | 99% | 0.984 |
+| jev-preview | 260 ms | $0.019 | 17% | 13% | 99% | 0.984 |
 | jev-latest | 261 ms | $0.019 | 19% | 16% | 98% | 0.975 |
-| Claude Haiku 5.5 | 2,276 ms | $0.124 | 22% | 97% | 100% | 0.995 |
+| Claude Haiku 5.5 | 3,569 ms | $0.124 | 22% | 97% | 100% | 0.995 |
 
 **What the state needs.** Two ablations, run on the same planted cases:
 
 | Condition | BSB key terms: real flagged / faults caught | Hindi | Arabic |
 |---|---|---|---|
-| Full state | 17% / 99% | 31% / 99% | 32% / 99% |
-| No approved terms (tW headwords left out) | 15% / 99% | 36% / 99% | 30% / 99% |
-| No renderings (aligned words left out) | 21% / 99% | 36% / 98% | 40% / 99% |
+| Full state | 17% / 99% | 31% / 99% | 31% / 99% |
+| No approved terms (local tW headwords left out) | 15% / 99% | 36% / 99% | 30% / 99% |
+| No renderings (aligned words left out) | 21% / 99% | 36% / 98% | 36% / 98% |
 
-Removing the approved terms moves the flag rate a few points either way, so the headword list is
-not what causes the false alarms (see F2). Removing the alignment raises false alarms by 4–8
-points and lowers figure-label accuracy (90% → 83% in English), but detection holds: Jev reads the
+For Hindi and Arabic, removing the local headwords moved the flag rate by +5 and −1 points, so the
+headword list does not explain their higher flag rate (see F2). For English the ablation tests
+little: the English headword is also the term name, which stays in the state. Removing the
+alignment raised false alarms by 4–5 points in each language and lowered figure-label accuracy
+(English 90% → 83%, Hindi 86% → 79%, Arabic 85% → 74%), but key-term detection held: Jev reads the
 verse, and the alignment mainly helps it locate the term.
 
 ### Phase 1: Hindi (IRV) and Arabic (NAV)
 
 | Question | Hindi real flagged | Hindi faults caught | Arabic real flagged | Arabic faults caught |
 |---|---|---|---|---|
-| Key terms | 31% | 99% of 198 | 32% | 99% of 218 |
+| Key terms | 31% | 99% of 198 | 31% | 99% of 218 |
 | Figure handling | 48% | 98% of 62 | 29% | 100% of 62 |
 | Figure clarity | 81% | 100% of 62 | 71% | 100% of 62 |
 
 Verse swaps were caught 100% in both. Exact handling label: 86% Hindi, 85% Arabic.
 
-Claude Haiku 5.5 flagged the same share of real key terms (33–34%), and removing the Hindi and
-Arabic headwords did not lower Jev's rate. So the doubled flag rate against English is probably
+Claude Haiku 5.5 flagged about the same share of real key terms (33–35%), and removing the Hindi
+and Arabic headwords barely moved Jev's rate. So the doubled flag rate against English is probably
 more about these two translations (both are freer than the BSB) and the checking agenda than about
 Jev reading Hindi or Arabic badly. That is an inference; human labels would settle it.
 
-**Back-translation tier.** Jev flagged 97 Hindi items and 89 Arabic ones. After Gemma
-back-translated each flagged verse, Jev re-checked and cleared 6 Hindi and 8 Arabic items. The
+**Back-translation tier.** Jev flagged 97 Hindi items and 87 Arabic ones. After Gemma
+back-translated each flagged verse, Jev re-checked and cleared 5 Hindi and 6 Arabic items. The
 rest went to the human queue. One warning sign: for Hindi 2:15, the back-translation said
 "rebuke", but the Hindi aligned to ἔλεγχε ("rebuke") is सिखाता रह, "keep teaching". The small model
 filled in the word from the Bible it remembers. Jev kept the item flagged, which was right.
@@ -229,16 +236,16 @@ different language in Chad. The manifest names the language "Masalit", so we tre
 ## Findings
 
 - **F1. Jev works as a fast first-pass screen for aligned translations in languages it reads.**
-  Detection of planted errors is 98–100% across English, Hindi, and Arabic, at about $0.00004 and
-  0.26 s per verse.
+  Detection of planted errors is 98–100% across English, Hindi, and Arabic, at about $0.00008 and
+  0.26 s per real verse.
 - **F2. Many key-term false alarms come from the checking agenda, not the translation.** 25 of the
-  BSB's 31 key-term flags recur in Hindi or Arabic (16 in both). Examples: προσδεχόμενοι in 2:13 is
-  linked to the "receive, welcome" article, but every translation correctly says "await";
+  BSB's 31 key-term flags recur in Hindi or Arabic (17 in all three). Examples: προσδεχόμενοι in
+  2:13 is linked to the "receive, welcome" article, but every translation correctly says "await";
   παρακαλεῖν in 1:9 is linked to the "courage" article. Only 6 BSB key-term flags were unique to
-  the BSB, against 17 for Hindi and 19 for Arabic. (All 16 BSB clarity flags also recur, but that
+  the BSB, against 17 for Hindi and 16 for Arabic. (All 16 BSB clarity flags also recur, but that
   is the strict cut-off in F5, not the agenda.)
 - **F3. Jev's confident answers are trustworthy; its middling ones are not well calibrated.** When
-  Jev puts an item at 0.8 or above, 97–98% of those items pass, and below 0.2 almost none do. In
+  Jev puts an item at 0.8 or above, 97–100% of those items pass, and below 0.2 almost none do. In
   between, English key terms are over-optimistic (items Jev put at 0.6–0.8 passed 38% of the
   time). Calibration here is measured on a mix of real and planted items, so it depends on that
   mix. For routing, this means the high cut-off is safe and the middle band belongs with humans.
@@ -246,9 +253,9 @@ different language in Chad. The manifest names the language "Masalit", so we tre
   slightly better (key-term AUROC 0.98–1.00 against Jev's 0.96–0.98), but on real figures it spread
   its probability across several answers and flagged 84–97% of them.
 - **F5. Figure clarity needs its own cut-off.** It ranks well but flags 52–81% of real figures at
-  0.9. At 0.7 it flags 13% (English), 35% (Hindi), and 32% (Arabic), and still catches 97–100% of
+  0.9. At 0.7 it flags 13% (English), 35% (Hindi), and 29% (Arabic), and still catches 97–100% of
   faults.
-- **F6. Back-translation by a small model added little and carries a known risk.** It cleared 6–9%
+- **F6. Back-translation by a small model added little and carries a known risk.** It cleared 5–7%
   of flagged items, and in at least one case it imported the remembered Bible text instead of
   translating what was written.
 - **F7. Zero-shot checking of an unsupported language does not work, and Jev says so.** On Masalit,
