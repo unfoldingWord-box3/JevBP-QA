@@ -27,6 +27,10 @@ Translation Words Links (key terms). README.md has the method and results.
 - The Masalit repo uses language code `mdg` (that is Massalat); Masalit is `mls`.
   Its translationCore data has only spelling edits, no checker selections.
 - Small-model back-translations can import the remembered Bible text (Hindi 2:15).
+- Jev is near-deterministic, not exact: identical requests drift ~0.01 in p (max 0.13),
+  so a few items cross a cut-off between runs. Treat 1-2 point differences as noise.
+- Planted faults must be built once from the full state and shared by every run
+  condition (run.cases_for); building them per condition made the ablation unfair.
 
 ## Durable lessons
 - Measure with planted errors, not just the published text: a checker that always
