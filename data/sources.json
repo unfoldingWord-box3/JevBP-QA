@@ -61,5 +61,40 @@
     "sha": "6e3900f8c26da305e9c70d2408df73a1505c23ee",
     "license": "CC BY-SA 4.0",
     "note": ""
+  },
+  "hi_irv": {
+    "repo": "Door43-Catalog/hi_irv",
+    "ref": "master",
+    "sha": "d72ad2a8f95a3826a4300738bb21deec248b23a1",
+    "license": "CC BY-SA 4.0",
+    "note": "Indian Revised Version (Hindi), aligned to UGNT 0.13 (older than 0.34)"
+  },
+  "hi_tw": {
+    "repo": "Door43-Catalog/hi_tw",
+    "ref": "master",
+    "sha": "64be591fa46bbee6f3a2127745af7e74ea4ef2e0",
+    "license": "CC BY-SA 4.0",
+    "note": ""
+  },
+  "ar_nav": {
+    "repo": "BSOJ/ar_nav",
+    "ref": "master",
+    "sha": "62e82b95ee01bb495fb42ecba1656017862629f8",
+    "license": "CC BY-SA 4.0 (Biblica open license; repo LICENSE.md is uW boilerplate)",
+    "note": "New Arabic Version (Ketab El Hayat), aligned to UGNT 0.34"
+  },
+  "ar_tw": {
+    "repo": "BSOJ/ar_tw",
+    "ref": "master",
+    "sha": "672197ba44723f8ff47a6acef662a05a038ea7df",
+    "license": "CC BY-SA 4.0",
+    "note": ""
+  },
+  "ru_tw": {
+    "repo": "ru_gl/ru_tw",
+    "ref": "master",
+    "sha": "697430e8270213577c480550b5a273aab52c48e2",
+    "license": "CC BY-SA 4.0",
+    "note": ""
   }
 }

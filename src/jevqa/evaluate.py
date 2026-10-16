@@ -83,8 +83,8 @@ def brier(rows: list[Scored]) -> float | None:
 
 
 def handling_confusion(rows: list[Scored]) -> tuple[dict, float | None]:
-    """Gold handling label -> predicted label counts, and exact-label accuracy."""
-    h = [r for r in rows if r.kind == "figure_handling" and r.gold_label]
+    """Gold handling label -> predicted label counts, and exact-label accuracy, on rewritten figures only."""
+    h = [r for r in rows if r.kind == "figure_handling" and r.gold_label and r.source.startswith("fig_")]
     table: dict[str, dict[str, int]] = {}
     for r in h:
         table.setdefault(r.gold_label, {}).setdefault(r.choice or "?", 0)

@@ -33,6 +33,8 @@ def state(case: Case) -> dict:
         "greek": case.greek,
         "translation": {"language": case.language, "version": case.version, "text": case.target},
     }
+    if case.source_text:
+        s["translators_source_text"] = {"version": "ULT (English, the text the translators worked from)", "text": case.source_text}
     if case.back_translation:
         s["translation"]["back_translation_to_english"] = case.back_translation
     if case.key_terms:

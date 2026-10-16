@@ -27,11 +27,13 @@ class Target:
 
 TARGETS = {
     "bsb": Target("bsb", "English", "BSB (Berean Standard Bible)", "en_tw"),
+    "hi_irv": Target("hi_irv", "Hindi", "IRV (Indian Revised Version)", "hi_tw"),
+    "ar_nav": Target("ar_nav", "Arabic", "NAV (New Arabic Version, Ketab El Hayat)", "ar_tw"),
     "ru_rsob": Target("ru_rsob", "Russian", "RSOB (Russian Simplified Open Bible)", "ru_tw"),
     "ru_rsb": Target("ru_rsb", "Russian", "Russian Synodal Bible (1876)", "ru_tw"),
     "mdg_ssv": Target("mdg_ssv", "Masalit", "Masalit Titus draft", None),
 }
-PHASES = {"0": ["bsb"], "1": ["ru_rsob", "ru_rsb"], "2": ["mdg_ssv"]}
+PHASES = {"0": ["bsb"], "1": ["hi_irv", "ar_nav"], "1-extra": ["ru_rsob", "ru_rsb"], "2": ["mdg_ssv"]}
 
 
 def _tsv(text: str) -> list[dict]:
@@ -62,7 +64,14 @@ def _note(text: str) -> str:
     return text.replace("\\n", "\n").strip()
 
 
-def build_cases(target_key: str) -> list[Case]:
+def _aligned(verse, words) -> str | None:
+    """Aligned rendering, or None. An aligned verse with no words on these Greek words also gives None:
+    the checker then has to find the term in the text itself, as it would in an unaligned translation."""
+    return usfm.rendering(verse, words) or None if verse else None
+
+
+def build_cases(target_key: str, approved: bool = True) -> list[Case]:
+    """approved=False leaves out the target-language tW headwords (the 'approved terms')."""
     t = TARGETS[target_key]
     greek = usfm.parse_ugnt(sources.fetch("ugnt"))
     verses = usfm.parse_target(sources.fetch(t.key))
@@ -78,13 +87,13 @@ def build_cases(target_key: str) -> list[Case]:
         en = _article("en_tw", slug)
         if en is None:
             continue
-        local = _article(t.tw, slug) if t.tw and t.tw != "en_tw" else en
+        local = (_article(t.tw, slug) if t.tw != "en_tw" else en) if t.tw and approved else None
         words = usfm.find_phrase(greek[ref], row["OrigWords"], int(row["Occurrence"]))
         terms.setdefault(ref, []).append(KeyTerm(
             id=f"kt_{row['ID']}", ref=ref, greek=row["OrigWords"], occurrence=int(row["Occurrence"]),
             article=slug, term=en[0], definition=en[1][:500],
             approved=local[0] if local else None,
-            rendering=usfm.rendering(verses[ref], words) if ref in verses else None,
+            rendering=_aligned(verses.get(ref), words),
         ))
 
     figures: dict[str, list[Figure]] = {}
@@ -96,7 +105,7 @@ def build_cases(target_key: str) -> list[Case]:
         words = usfm.find_phrase(greek[ref], row["Quote"], int(row["Occurrence"]))
         figures.setdefault(ref, []).append(Figure(
             id=f"fig_{row['ID']}", ref=ref, kind=kind, quote=row["Quote"], occurrence=int(row["Occurrence"]),
-            note=_note(row["Note"]), rendering=usfm.rendering(verses[ref], words) if ref in verses else None,
+            note=_note(row["Note"]), rendering=_aligned(verses.get(ref), words),
         ))
 
     cases = []

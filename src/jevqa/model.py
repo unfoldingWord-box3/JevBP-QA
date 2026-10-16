@@ -100,6 +100,7 @@ class Case:
     gold: tuple[Gold, ...] = ()
     mutation: str | None = None  # what was changed, in words, for mutants
     back_translation: str | None = None  # added by the explain tier before a recheck
+    source_text: str | None = None  # the English text the translators worked from (ULT for Masalit), if given
 
 
 @dataclass

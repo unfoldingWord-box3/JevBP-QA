@@ -13,15 +13,23 @@ RUNS = ROOT / "runs"
 EXPLAIN_MODEL = "google/gemma-4-26b-a4b-it"  # the "small language model" tier
 
 
-def label(backend: backends.Backend) -> str:
-    return f"{backend.name}-{backend.model.split('/')[-1]}" if backend.model else backend.name
+def label(backend: backends.Backend, approved: bool = True, with_source: bool = False) -> str:
+    base = f"{backend.name}-{backend.model.split('/')[-1]}" if backend.model else backend.name
+    return base + ("" if approved else "+no-approved") + ("+ult" if with_source else "")
 
 
-def cases_for(target: str, with_mutants: bool) -> list[Case]:
-    cases = agenda.assume_good(agenda.build_cases(target))
-    if with_mutants:
-        cases += mutate.key_term_mutants(cases) + mutate.figure_mutants(target, cases)
-    return cases
+def cases_for(target: str, with_mutants: bool, approved: bool = True, with_source: bool = False) -> list[Case]:
+    cases = agenda.assume_good(agenda.build_cases(target, approved))
+    if with_source:
+        from jevqa import sources, usfm
+        ult = usfm.parse_target(sources.fetch("en_ult"))
+        cases = [replace(c, source_text=ult[c.ref].text) for c in cases]
+    if not with_mutants:
+        return cases
+    faults = mutate.verse_swaps(cases)
+    if any(k.rendering for c in cases for k in c.key_terms):  # seeded item faults need an aligned translation
+        faults += mutate.key_term_mutants(cases) + mutate.figure_mutants(target, cases)
+    return cases + faults
 
 
 def _row(case: Case, res: CallResult) -> dict:
@@ -34,8 +42,9 @@ def _row(case: Case, res: CallResult) -> dict:
     }
 
 
-def run(target: str, backend: backends.Backend, cases: list[Case], workers: int = 8) -> Path:
-    out = RUNS / target / label(backend)
+def run(target: str, backend: backends.Backend, cases: list[Case], workers: int = 8, approved: bool = True,
+        with_source: bool = False) -> Path:
+    out = RUNS / target / label(backend, approved, with_source)
     out.mkdir(parents=True, exist_ok=True)
     with ThreadPoolExecutor(workers) as pool:
         results = list(pool.map(backend.ask, cases))
@@ -43,7 +52,7 @@ def run(target: str, backend: backends.Backend, cases: list[Case], workers: int 
         for c, r in zip(cases, results):
             f.write(json.dumps(_row(c, r), ensure_ascii=False) + "\n")
     errors = [r for r in results if r.error]
-    print(f"{target} {label(backend)}: {len(results)} calls, {len(errors)} with errors -> {out}")
+    print(f"{target} {out.name}: {len(results)} calls, {len(errors)} with errors -> {out}")
     for r in errors[:5]:
         print("  error", r.case_id, r.error[:200])
     return out

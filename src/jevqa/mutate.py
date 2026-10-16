@@ -28,7 +28,8 @@ GENERATOR = "anthropic/claude-sonnet-5.5"
 
 
 def _first_term(approved: str | None, fallback: str) -> str:
-    return (approved or fallback).split(",")[0].strip()
+    """First headword of a tW title: 'repent, repentance' -> 'repent' (Arabic titles use '،')."""
+    return re.split(r"[,،;/(]", approved or fallback)[0].strip()
 
 
 # Leading function words that alignment groups carry along with the content word ("of God", "an apostle").
@@ -39,10 +40,16 @@ _LEADING = {
 }
 
 
+# Hindi postpositions follow the noun ("परमेश्वर का").
+_TRAILING = {"Hindi": {"का", "के", "की", "को", "से", "में", "ने", "पर", "तक", "और"}}
+
+
 def _core(rendering: str, language: str) -> str:
     words = rendering.split()
     while len(words) > 1 and words[0].lower() in _LEADING.get(language, set()):
         words = words[1:]
+    while len(words) > 1 and words[-1] in _TRAILING.get(language, set()):
+        words = words[:-1]
     return " ".join(words)
 
 
@@ -66,7 +73,7 @@ def key_term_mutants(cases: list[Case], seed: int = 7) -> list[Case]:
             core = _core(k.rendering, c.language)
             others = [t for a, t in pool if a != k.article and t.lower() not in k.rendering.lower()]
             wrong = rng.choice(others)
-            for kind, new, rendering in (("kt_wrong", wrong, k.rendering.replace(core, wrong)), ("kt_omit", "", "")):
+            for kind, new, rendering in (("kt_wrong", wrong, k.rendering.replace(core, wrong)), ("kt_omit", "", None)):
                 text = _replace_once(c.target, core, new)
                 if not text or text == c.target:
                     continue
@@ -76,6 +83,24 @@ def key_term_mutants(cases: list[Case], seed: int = 7) -> list[Case]:
                     gold=(Gold(k.id, False),),
                     mutation=f"{k.id}: {core!r} -> {new!r}",
                 ))
+    return out
+
+
+def verse_swaps(cases: list[Case], offset: int = 23) -> list[Case]:
+    """The translation text of a far-away verse under this verse's Greek: every item should fail.
+
+    A floor test: a checker that cannot tell this apart from the real verse is not reading the translation.
+    """
+    out = []
+    for i, c in enumerate(cases):
+        other = cases[(i + offset) % len(cases)]
+        out.append(replace(
+            c, id=f"{c.id}~verse_swap~{other.ref}", target=other.target,
+            key_terms=tuple(replace(k, rendering=None) for k in c.key_terms),
+            figures=tuple(replace(f, rendering=None) for f in c.figures),
+            gold=tuple(Gold(g.question, False, "lost" if g.question.endswith("_handling") else None) for g in c.gold),
+            mutation=f"translation text replaced by {other.ref}",
+        ))
     return out
 
 
@@ -122,17 +147,21 @@ def figure_mutants(target: str, cases: list[Case]) -> list[Case]:
                 saved[f.id] = {"ref": c.ref, "original": c.target, "variants": got, "generator": GENERATOR}
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(saved, ensure_ascii=False, indent=1) + "\n")
+    audit_path = MUTANTS / f"{target}.audit.json"
+    audit = json.loads(audit_path.read_text()) if audit_path.exists() else {}
     out = []
     for c in cases:
         for f in c.figures:
-            for label, v in saved.get(f.id, {}).get("variants", {}).items():
-                if label not in HANDLING or not v.get("verse") or v["verse"] == c.target and label in ("lost", "distorted"):
+            for asked, v in saved.get(f.id, {}).get("variants", {}).items():
+                if asked not in HANDLING or not v.get("verse") or v["verse"] == c.target and asked in ("lost", "distorted"):
                     continue
+                case_id = f"{c.id}~fig_{asked}~{f.id}"
+                label = audit.get(case_id, {}).get("label", asked)  # a human/LLM audit can correct the generator
                 passes = label in PASSING_HANDLING
                 out.append(replace(
-                    c, id=f"{c.id}~fig_{label}~{f.id}", target=v["verse"], key_terms=(),
+                    c, id=case_id, target=v["verse"], key_terms=(),
                     figures=(replace(f, rendering=v.get("rendering", "")),),
                     gold=(Gold(f"{f.id}_handling", passes, label), Gold(f"{f.id}_clarity", passes)),
-                    mutation=f"{f.id}: rewritten as {label}",
+                    mutation=f"{f.id}: rewritten as {asked}" + (f" (audited: {label})" if label != asked else ""),
                 ))
     return out
