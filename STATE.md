@@ -41,5 +41,11 @@ Translation Words Links (key terms). README.md has the method and results.
 - Flags that recur across translations point at the checking agenda (TWL links),
   not the translation.
 
+## Paused
+- Phase 2b (letter-ciphered BSB as a zero-resource test, issue #4) is paused: a fellow
+  developer already did it with Jev + mDeBERTa and reports 66-69% checker time savings on a
+  fully ciphered language (cipher by character so patterns still match). Not reproduced here.
+  Resume only to compare setups with that developer.
+
 ## Blockers
 - Real precision needs human labels on a sample of Hindi/Arabic flags.

@@ -283,10 +283,11 @@ different language in Chad. The manifest names the language "Masalit", so we tre
 2. **Rank flags by how specific they are to one translation.** An item flagged across many
    translations is likely an agenda problem; send those to the Translation Words Links
    maintainers instead of the translation team.
-3. **Test zero-resource checking on a language with known answers.** Cipher a known translation
-   letter by letter (so word patterns still repeat) and run it like Masalit. A fellow developer
-   reports 66–69% checker time savings on a fully ciphered language using Jev together with
-   mDeBERTa; we have not reproduced that yet.
+3. **Zero-resource checking on a ciphered language: paused, already done elsewhere.** A fellow
+   developer has run this (cipher a known translation letter by letter so word patterns still
+   repeat, then check with Jev together with mDeBERTa) and reports 66–69% checker time savings on
+   a fully ciphered language. We have not reproduced it and are not planning to; the next step
+   there is to compare setups with that developer (issue #4) rather than rebuild it.
 4. **Give Jev something to read for Masalit-type languages.** Options, from cheapest: statistical
    word alignment across the Masalit New Testament books already on Door43 (about 25 of them),
    which would supply renderings; a key-term glossary from the translation team; a human
