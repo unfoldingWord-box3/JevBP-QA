@@ -4,5 +4,5 @@ __pycache__/
 graft/
 .claude/settings.local.json
 .claude/state/
-runs/*/raw-cache/
+runs/cache/
 .env

@@ -1,0 +1,65 @@
+{
+  "ugnt": {
+    "repo": "unfoldingWord/el-x-koine_ugnt",
+    "ref": "v0.34",
+    "sha": "fc95b2b8aad08bb65ab54628ab685413a1139e97",
+    "license": "CC BY-SA 4.0",
+    "note": "unfoldingWord Greek New Testament; v0.34 is the version BSB and RSOB are aligned to"
+  },
+  "bsb": {
+    "repo": "Worldview/en_bsb",
+    "ref": "master",
+    "sha": "21bca0199a740dc8e99e90a4c25390f0ac93d301",
+    "license": "Public domain (BSB); alignment CC BY-SA 4.0",
+    "note": "Berean Standard Bible, word-aligned to UGNT 0.34 by Worldview"
+  },
+  "ru_rsob": {
+    "repo": "ru_gl/ru_rsob",
+    "ref": "master",
+    "sha": "695b1a692f06065e7bf4b71d70d578caa94e53fb",
+    "license": "CC BY-SA 4.0",
+    "note": "Russian Simplified Open Bible, aligned to UGNT 0.34"
+  },
+  "ru_rsb": {
+    "repo": "Door43-Catalog/ru_rsb",
+    "ref": "master",
+    "sha": "23065ba7b9def60aaf33d02b847528e7a3c1445c",
+    "license": "Public domain (1876 text); alignment CC BY-SA 4.0",
+    "note": "Russian Synodal Bible, aligned to UGNT (2019, version not stated)"
+  },
+  "mdg_ssv": {
+    "repo": "Nhial/mdg_ssv_tit_book",
+    "ref": "master",
+    "sha": "d9e0dafb84d30ebbda4f936bd2342f0dd8340092",
+    "license": "CC BY-SA 4.0",
+    "note": "Masalit Titus (repo uses code mdg; ISO 639-3 for Masalit is mls), unaligned, translated from ULT"
+  },
+  "en_ult": {
+    "repo": "unfoldingWord/en_ult",
+    "ref": "master",
+    "sha": "fb3c776beaa96c237880b45238aba348edfd014d",
+    "license": "CC BY-SA 4.0",
+    "note": "source text the Masalit team translated from"
+  },
+  "en_twl": {
+    "repo": "unfoldingWord/en_twl",
+    "ref": "master",
+    "sha": "d880052cb7a27c15dbee0e72fb951043d92f264c",
+    "license": "CC BY-SA 4.0",
+    "note": ""
+  },
+  "en_tn": {
+    "repo": "unfoldingWord/en_tn",
+    "ref": "master",
+    "sha": "a0959d790f57d8b912b589a8d3f9ed837040f833",
+    "license": "CC BY-SA 4.0",
+    "note": ""
+  },
+  "en_tw": {
+    "repo": "unfoldingWord/en_tw",
+    "ref": "master",
+    "sha": "6e3900f8c26da305e9c70d2408df73a1505c23ee",
+    "license": "CC BY-SA 4.0",
+    "note": ""
+  }
+}
