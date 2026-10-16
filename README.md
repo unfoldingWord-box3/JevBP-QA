@@ -45,7 +45,7 @@ We ran it on the letter to Titus in three settings:
   checking of a language with no model support does not work this way. Jev needs something it
   can read: an alignment, a key-term glossary, or a human back-translation.
 - **Cost is negligible.** The published results took 5,355 distinct Jev calls costing $0.24, about
-  $0.00008 per real verse.
+  $0.00007–0.00008 per real verse (a real verse asks up to 11 questions in one call).
 
 ## How it works
 
@@ -162,7 +162,7 @@ The cut-off trades false alarms for misses. For key terms: at 0.8, 8% of real it
 | Checker | Median time per real verse | Cost for 453 calls | Real key terms flagged | Real figures flagged (handling) | Key-term faults caught | Key-term AUROC |
 |---|---|---|---|---|---|---|
 | jev-preview | 260 ms | $0.019 | 17% | 13% | 99% | 0.984 |
-| jev-latest | 261 ms | $0.019 | 19% | 16% | 98% | 0.975 |
+| jev-latest | 279 ms | $0.019 | 19% | 16% | 98% | 0.975 |
 | Claude Haiku 5.5 | 3,569 ms | $0.124 | 22% | 97% | 100% | 0.995 |
 
 **What the state needs.** Two ablations, run on the same planted cases:
@@ -236,7 +236,7 @@ different language in Chad. The manifest names the language "Masalit", so we tre
 ## Findings
 
 - **F1. Jev works as a fast first-pass screen for aligned translations in languages it reads.**
-  Detection of planted errors is 98–100% across English, Hindi, and Arabic, at about $0.00008 and
+  Detection of planted errors is 98–100% across English, Hindi, and Arabic, at $0.00007–0.00008 and
   0.26 s per real verse.
 - **F2. Many key-term false alarms come from the checking agenda, not the translation.** 25 of the
   BSB's 31 key-term flags recur in Hindi or Arabic (17 in all three). Examples: προσδεχόμενοι in
